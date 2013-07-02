@@ -1,5 +1,7 @@
 package Geo::JSON::Types;
 
+# VERSION
+
 use strict;
 use warnings;
 

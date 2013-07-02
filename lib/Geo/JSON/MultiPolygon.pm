@@ -1,5 +1,7 @@
 package Geo::JSON::MultiPolygon;
 
+# VERSION
+
 use Moo;
 extends 'Geo::JSON::Geometry';
 

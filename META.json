@@ -1,0 +1,143 @@
+{
+   "abstract" : "Perl interface for Geojson ",
+   "author" : [
+      "Michael Jemmeson <mjemmeson@cpan.org>"
+   ],
+   "dynamic_config" : 0,
+   "generated_by" : "Dist::Zilla version 4.300034, CPAN::Meta::Converter version 2.131560",
+   "license" : [
+      "perl_5"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "Geo-JSON",
+   "no_index" : {
+      "directory" : [
+         "t",
+         "xt",
+         "examples",
+         "corpus"
+      ],
+      "package" : [
+         "DB"
+      ]
+   },
+   "prereqs" : {
+      "configure" : {
+         "requires" : {
+            "ExtUtils::MakeMaker" : "6.30"
+         }
+      },
+      "develop" : {
+         "requires" : {
+            "Pod::Coverage::TrustPod" : "0",
+            "Test::CPAN::Meta" : "0",
+            "Test::Pod" : "1.41",
+            "Test::Pod::Coverage" : "1.08"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "Carp" : "0",
+            "Exporter" : "0",
+            "JSON" : "0",
+            "Moo" : "0",
+            "Type::Library" : "0",
+            "Type::Utils" : "0",
+            "Types::Standard" : "0",
+            "base" : "0",
+            "perl" : "5.008",
+            "strict" : "0",
+            "warnings" : "0"
+         }
+      },
+      "test" : {
+         "requires" : {
+            "ExtUtils::MakeMaker" : "0",
+            "File::Find" : "0",
+            "File::Spec::Functions" : "0",
+            "File::Temp" : "0",
+            "List::Util" : "0",
+            "Test::More" : "0",
+            "Test::Most" : "0"
+         }
+      }
+   },
+   "provides" : {
+      "Geo::JSON" : {
+         "file" : "lib/Geo/JSON.pm",
+         "version" : "0.001"
+      },
+      "Geo::JSON::Base" : {
+         "file" : "lib/Geo/JSON/Base.pm",
+         "version" : "0.001"
+      },
+      "Geo::JSON::Feature" : {
+         "file" : "lib/Geo/JSON/Feature.pm",
+         "version" : "0.001"
+      },
+      "Geo::JSON::FeatureCollection" : {
+         "file" : "lib/Geo/JSON/FeatureCollection.pm",
+         "version" : "0.001"
+      },
+      "Geo::JSON::Geometry" : {
+         "file" : "lib/Geo/JSON/Geometry.pm",
+         "version" : "0.001"
+      },
+      "Geo::JSON::GeometryCollection" : {
+         "file" : "lib/Geo/JSON/GeometryCollection.pm",
+         "version" : "0.001"
+      },
+      "Geo::JSON::LineString" : {
+         "file" : "lib/Geo/JSON/LineString.pm",
+         "version" : "0.001"
+      },
+      "Geo::JSON::MultiLineString" : {
+         "file" : "lib/Geo/JSON/MultiLineString.pm",
+         "version" : "0.001"
+      },
+      "Geo::JSON::MultiPoint" : {
+         "file" : "lib/Geo/JSON/MultiPoint.pm",
+         "version" : "0.001"
+      },
+      "Geo::JSON::MultiPolygon" : {
+         "file" : "lib/Geo/JSON/MultiPolygon.pm",
+         "version" : "0.001"
+      },
+      "Geo::JSON::Point" : {
+         "file" : "lib/Geo/JSON/Point.pm",
+         "version" : "0.001"
+      },
+      "Geo::JSON::Polygon" : {
+         "file" : "lib/Geo/JSON/Polygon.pm",
+         "version" : "0.001"
+      },
+      "Geo::JSON::Types" : {
+         "file" : "lib/Geo/JSON/Types.pm",
+         "version" : "0.001"
+      },
+      "Geo::JSON::Utils" : {
+         "file" : "lib/Geo/JSON/Utils.pm",
+         "version" : "0.001"
+      }
+   },
+   "release_status" : "stable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/mjemmeson/geo-json/issues"
+      },
+      "homepage" : "https://metacpan.org/release/Geo-JSON",
+      "repository" : {
+         "type" : "git",
+         "url" : "git://github.com/mjemmeson/geo-json.git",
+         "web" : "https://github.com/mjemmeson/geo-json"
+      }
+   },
+   "version" : "0.001",
+   "x_contributors" : [
+      "Michael Jemmeson <michael.jemmeson@cpan.org>"
+   ]
+}
+

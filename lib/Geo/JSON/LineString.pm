@@ -1,5 +1,7 @@
 package Geo::JSON::LineString;
 
+# VERSION
+
 use Moo;
 extends 'Geo::JSON::Geometry';
 

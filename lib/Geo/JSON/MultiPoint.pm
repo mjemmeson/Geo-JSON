@@ -1,5 +1,7 @@
 package Geo::JSON::MultiPoint;
 
+# VERSION
+
 use Moo;
 extends 'Geo::JSON::Geometry';
 

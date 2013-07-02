@@ -1,5 +1,9 @@
 package Geo::JSON;
 
+# VERSION
+
+# ABSTRACT: Perl interface for Geojson 
+
 use strict;
 use warnings;
 use Carp;

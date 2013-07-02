@@ -1,5 +1,7 @@
 package Geo::JSON::Utils;
 
+# VERSION
+
 use strict;
 use warnings;
 use Carp;

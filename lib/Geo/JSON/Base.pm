@@ -1,5 +1,7 @@
 package Geo::JSON::Base;
 
+# VERSION
+
 use Moo;
 
 use Carp;

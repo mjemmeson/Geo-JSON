@@ -1,5 +1,7 @@
 package Geo::JSON::FeatureCollection;
 
+# VERSION
+
 use Moo;
 extends 'Geo::JSON::Base';
 

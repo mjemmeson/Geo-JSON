@@ -1,5 +1,7 @@
 package Geo::JSON::Point;
 
+# VERSION
+
 use Moo;
 extends 'Geo::JSON::Geometry';
 
