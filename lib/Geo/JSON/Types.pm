@@ -1,5 +1,8 @@
 package Geo::JSON::Types;
 
+use strict;
+use warnings;
+
 use Type::Library -base, -declare => qw/
     Feature
     Geometry
@@ -40,7 +43,7 @@ declare LineStrings,           #
 
 declare LinearRing,            #
     as LineString,             #
-    where { @{$_} >= 4 && compare_positions( $_->[0], $_[-1] ) };
+    where { @{$_} >= 4 && compare_positions( $_->[0], $_->[-1] ) };
 
 declare Polygon,               #
     as ArrayRef [LinearRing];

@@ -1,6 +1,9 @@
 package Geo::JSON::GeometryCollection;
 
 use Moo;
+extends 'Geo::JSON::Base';
+
+use Carp;
 use Types::Standard qw/ ArrayRef /;
 use Geo::JSON::Types qw/ Geometry /;
 use Geo::JSON::Utils;

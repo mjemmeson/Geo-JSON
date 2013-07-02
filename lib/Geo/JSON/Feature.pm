@@ -1,8 +1,9 @@
 package Geo::JSON::Feature;
 
-use Carp;
-
 use Moo;
+extends 'Geo::JSON::Base';
+
+use Carp;
 use Types::Standard qw/ Str Maybe HashRef /;
 use Geo::JSON::Types qw/ Geometry /;
 use Geo::JSON::Utils;

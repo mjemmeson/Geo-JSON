@@ -6,6 +6,8 @@ use Geo::JSON::Point;
 
 my $pkg = 'Geo::JSON::Point';
 
+note "constructor";
+
 dies_ok { $pkg->new() } "empty args";
 dies_ok { $pkg->new( { coordinates => [] } ) } "empty arrayref";
 dies_ok { $pkg->new( { coordinates => [1] } ) } "invalid coordinates";
