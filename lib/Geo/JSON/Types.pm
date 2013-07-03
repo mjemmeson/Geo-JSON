@@ -8,6 +8,7 @@ use strict;
 use warnings;
 
 use Type::Library -base, -declare => qw/
+    CRS
     Feature
     Geometry
     LinearRing
@@ -18,10 +19,16 @@ use Type::Library -base, -declare => qw/
     Position
     Positions
     /;
-use Type::Utils;
-use Types::Standard qw/ Tuple Num Maybe ArrayRef Object /;
+use Type::Utils qw/ declare as where coerce from /;
+use Types::Standard qw/ ArrayRef HashRef Maybe Num Object Tuple /;
 
 use Geo::JSON::Utils qw/ compare_positions /;
+
+use Class::Load qw/ load_class /;
+
+declare CRS,      #
+    as Object,    #
+    where { $_ && $_->isa("Geo::JSON::CRS") };
 
 declare Feature,    #
     as Object,      #
@@ -54,6 +61,13 @@ declare Polygon,               #
 
 declare Polygons,              #
     as ArrayRef [Polygon];
+
+coerce Geometry, from HashRef, sub {
+    my $args  = shift;
+    my $class = 'Geo::JSON::' . delete $args->{type};
+    load_class $class;
+    $class->new($args);
+};
 
 =head1 TYPES EXPORTED
 

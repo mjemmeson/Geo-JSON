@@ -8,13 +8,18 @@ use Moo;
 
 use Carp;
 use JSON ();
+use Types::Standard qw/ Maybe /;
 
-my $json = JSON->new->pretty->utf8->convert_blessed(1);
+use Geo::JSON::Types qw/ CRS /;
+
+my $json = JSON->new->canonical(1)->pretty->utf8->convert_blessed(1);
 
 has type => (
     is      => 'ro',
     default => sub { return ( ( ref $_[0] ) =~ m/::(\w+)$/ )[0] },
 );
+
+has crs => ( is => 'ro', isa => Maybe[CRS] );
 
 sub inflate {
     my ( $class, $args ) = @_;

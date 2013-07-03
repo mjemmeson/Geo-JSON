@@ -6,19 +6,41 @@ use warnings;
 use Class::Load qw/ load_class /;
 use JSON ();
 
-my $json = JSON->new->pretty->utf8;
+my $json = JSON->new->pretty->canonical(1)->utf8;
 
 my %DEFAULT_ARGS = (
     Point => { coordinates => [ 1, 2 ] },
     MultiPoint => { coordinates => [ [ 1, 2 ], [ 3, 4 ] ] },
     LineString => { coordinates => [ [ 1, 2 ], [ 3, 4 ] ] },
-    MultiLineString => {
-        coordinates => [ [ [ 1, 2 ], [ 3, 4 ] ], [ [ 5, 6 ], [ 7, 8 ] ], ]
+    MultiLineString =>
+        { coordinates => [ [ [ 1, 2 ], [ 3, 4 ] ], [ [ 5, 6 ], [ 7, 8 ] ] ] },
+    Polygon => {
+        coordinates =>
+            [ [ [ 1, 2 ], [ 3, 4 ], [ 5, 6 ], [ 7, 8 ], [ 1, 2 ] ] ]
     },
-    Polygon           => {},
-    Feature           => {},
-    FeatureCollection => {},
+    MultiPolygon => {
+        coordinates => [
+            [ [ [ 1, 2 ], [ 3, 4 ], [ 5, 6 ], [ 7, 8 ], [ 1, 2 ] ] ],
+            [ [ [ 9, 8 ], [ 7, 6 ], [ 5, 4 ], [ 3, 2 ], [ 9, 8 ] ] ]
+        ],
+    },
+    Feature => { geometry => { type => 'Point', coordinates => [ 1, 2 ] } },
+    FeatureCollection => {
+        features => [
+            {   type     => 'Feature',
+                geometry => { type => 'Point', coordinates => [ 1, 2 ] }
+            },
+            {   type     => 'Feature',
+                geometry => {
+                    type        => 'MultiPoint',
+                    coordinates => [ [ 1, 2 ], [ 3, 4 ] ]
+                }
+            },
+        ],
+    },
 );
+
+sub types { sort keys %DEFAULT_ARGS }
 
 sub json {
     my ( $class, $type, $args ) = @_;
@@ -62,6 +84,10 @@ sub MultiLineString {
 
 sub Polygon {
     return { coordinates => $_[1]->{coordinates}, type => 'Polygon' };
+}
+
+sub MultiPolygon {
+    return { coordinates => $_[1]->{coordinates}, type => 'MultiPolygon' };
 }
 
 sub Feature {
