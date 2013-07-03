@@ -2,6 +2,8 @@ package Geo::JSON::MultiPolygon;
 
 # VERSION
 
+# ABSTRACT: object representing a geojson MultiPolygon
+
 use Moo;
 extends 'Geo::JSON::Geometry';
 

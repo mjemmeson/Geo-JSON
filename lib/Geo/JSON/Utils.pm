@@ -2,6 +2,8 @@ package Geo::JSON::Utils;
 
 # VERSION
 
+# ABSTRACT: Util methods for Geo::JSON classes
+
 use strict;
 use warnings;
 use Carp;
@@ -20,7 +22,7 @@ sub compare_positions {
         return 0
             if ( defined $pos1->[$dim] && !defined $pos2->[$dim] )
             || ( !defined $pos1->[$dim] && defined $pos2->[$dim] )
-            || ( $pos1->[$dim] ne $pos2->[$dim] );
+            || ( $pos1->[$dim] != $pos2->[$dim] );
     }
     return 1;
 }

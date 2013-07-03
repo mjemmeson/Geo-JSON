@@ -2,6 +2,8 @@ package Geo::JSON::Types;
 
 # VERSION
 
+# ABSTRACT: Type::Tiny data types for Geo::JSON classes
+
 use strict;
 use warnings;
 
@@ -53,7 +55,49 @@ declare Polygon,               #
 declare Polygons,              #
     as ArrayRef [Polygon];
 
+=head1 TYPES EXPORTED
 
+=over
+
+=item *
+
+Feature
+
+=item *
+
+Geometry
+
+=item *
+
+Position
+
+=item *
+
+Positions
+
+=item *
+
+LineString
+
+=item *
+
+LineStrings
+
+=item *
+
+LinearRing
+
+=item *
+
+Polygon
+
+=item *
+
+Polygons
+
+=back
+
+=cut
 
 1;
 

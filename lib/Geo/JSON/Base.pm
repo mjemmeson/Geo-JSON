@@ -2,6 +2,8 @@ package Geo::JSON::Base;
 
 # VERSION
 
+# ABSTRACT: Base class for Geo::JSON objects
+
 use Moo;
 
 use Carp;

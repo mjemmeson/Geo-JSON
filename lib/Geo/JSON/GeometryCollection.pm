@@ -2,6 +2,8 @@ package Geo::JSON::GeometryCollection;
 
 # VERSION
 
+# ABSTRACT: object representing a geojson GeometryCollection
+
 use Moo;
 extends 'Geo::JSON::Base';
 

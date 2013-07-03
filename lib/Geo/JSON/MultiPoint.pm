@@ -2,6 +2,8 @@ package Geo::JSON::MultiPoint;
 
 # VERSION
 
+# ABSTRACT: object representing a geojson MultiPoint
+
 use Moo;
 extends 'Geo::JSON::Geometry';
 

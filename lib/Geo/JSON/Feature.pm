@@ -2,6 +2,8 @@ package Geo::JSON::Feature;
 
 # VERSION
 
+# ABSTRACT: object representing a geojson Feature
+
 use Moo;
 extends 'Geo::JSON::Base';
 

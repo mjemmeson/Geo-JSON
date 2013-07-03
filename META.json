@@ -1,10 +1,10 @@
 {
-   "abstract" : "Perl interface for Geojson ",
+   "abstract" : "Perl OO interface for geojson ",
    "author" : [
       "Michael Jemmeson <mjemmeson@cpan.org>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.300034, CPAN::Meta::Converter version 2.131560",
+   "generated_by" : "Dist::Zilla version 4.300034, CPAN::Meta::Converter version 2.120921",
    "license" : [
       "perl_5"
    ],
