@@ -55,11 +55,13 @@
       },
       "test" : {
          "requires" : {
+            "Class::Load" : "0",
             "ExtUtils::MakeMaker" : "0",
             "File::Find" : "0",
             "File::Spec::Functions" : "0",
             "File::Temp" : "0",
             "List::Util" : "0",
+            "Path::Class" : "0",
             "Test::More" : "0",
             "Test::Most" : "0"
          }
@@ -72,6 +74,10 @@
       },
       "Geo::JSON::Base" : {
          "file" : "lib/Geo/JSON/Base.pm",
+         "version" : "0.001"
+      },
+      "Geo::JSON::CRS" : {
+         "file" : "lib/Geo/JSON/CRS.pm",
          "version" : "0.001"
       },
       "Geo::JSON::Feature" : {
@@ -135,9 +141,6 @@
          "web" : "https://github.com/mjemmeson/geo-json"
       }
    },
-   "version" : "0.001",
-   "x_contributors" : [
-      "Michael Jemmeson <michael.jemmeson@cpan.org>"
-   ]
+   "version" : "0.001"
 }
 

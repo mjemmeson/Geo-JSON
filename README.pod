@@ -21,6 +21,12 @@ version 0.001
 Convert to and from geojson using Perl objects. See the individual object
 classes for more details.
 
+Currently in development - feedback welcome.
+
+Currently supports 2 or 3 dimensions (longitude, latitude, altitude). If there
+is a case for increasing this to support a higher or arbitrary number please
+let me know.
+
 =head1 GEOJSON SPECIFICATION
 
 See: L<http://www.geojson.org/geojson-spec.html>
@@ -75,6 +81,24 @@ L<Geo::JSON::FeatureCollection>
 
 Takes a geojson string, returns the object it represents.
 
+=head1 TODO
+
+=over
+
+=item *
+
+Floating point maths, check scientific notation etc
+
+=item *
+
+CRS values
+
+=item *
+
+Validation of lat/long/altitude? (linked to CRS?)
+
+=back
+
 =for :stopwords cpan testmatrix url annocpan anno bugtracker rt cpants kwalitee diff irc mailto metadata placeholders metacpan
 
 =head1 SUPPORT
@@ -97,10 +121,6 @@ L<https://github.com/mjemmeson/geo-json>
 =head1 AUTHOR
 
 Michael Jemmeson <mjemmeson@cpan.org>
-
-=head1 CONTRIBUTOR
-
-Michael Jemmeson <michael.jemmeson@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
