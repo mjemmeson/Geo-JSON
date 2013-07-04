@@ -22,6 +22,8 @@ use Geo::JSON::MultiPolygon;
 use Geo::JSON::Point;
 use Geo::JSON::Polygon;
 
+our $json = JSON->new->canonical(1)->pretty->utf8->convert_blessed(1);
+
 =head1 SYNOPSIS
 
     use Geo::JSON;
@@ -100,17 +102,18 @@ sub from_json {
 
     my $data = decode_json($json);
 
-    croak "from_json requires a JSON object (hashref)" unless ref $data eq 'HASH';
+    croak "from_json requires a JSON object (hashref)"
+        unless ref $data eq 'HASH';
 
     my $type = delete $data->{type}
-      or croak "Invalid JSON data: no type specified";
+        or croak "Invalid JSON data: no type specified";
 
-    my $geo_json_class = 'Geo::JSON::'. $type;
+    my $geo_json_class = 'Geo::JSON::' . $type;
 
     eval "require $geo_json_class";
     croak "Unable to load '$geo_json_class'; $@" if $@;
 
-    return $geo_json_class->new( $data );
+    return $geo_json_class->new($data);
 }
 
 =head1 TODO

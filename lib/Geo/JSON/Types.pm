@@ -50,10 +50,11 @@ BEGIN {
     declare Polygons,              #
         as ArrayRef [Polygon];
 
-    class_type CRS, { class => 'Geo::JSON::CRS' };
-
+    class_type CRS,      { class => 'Geo::JSON::CRS' };
     class_type Feature,  { class => 'Geo::JSON::Feature' };
     class_type Geometry, { class => 'Geo::JSON::Geometry' };
+
+    coerce CRS, from HashRef, q{ "Geo::JSON::CRS"->new($_) };
 
     coerce Feature, from HashRef,
         q{ ("Geo::JSON::".(delete $_->{type}))->new($_) };

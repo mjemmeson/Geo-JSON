@@ -14,10 +14,10 @@ my %properties = ( property_1 => 'foo', property_2 => 'bar' );
 my @features =    #
     map {
     GeoJSONTests->object(
-        'Feature' => { Geometry => $_, properties => {%properties} } )
+        'Feature' => { geometry => $_, properties => {%properties} } )
     }             #
     map { GeoJSONTests->object($_) }    #
-    GeoJSONTests->types;
+    GeoJSONTests->geometry_types;
 
 ok my $feature_collection = $pkg->new(
     {   features   => \@features,

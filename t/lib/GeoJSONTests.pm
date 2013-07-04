@@ -38,6 +38,10 @@ my %DEFAULT_ARGS = (
             },
         ],
     },
+    CRS => {
+        type       => 'name',
+        properties => { name => 'urn:ogc:def:crs:OGC:1.3:CRS84' }
+    },
 );
 
 sub types { sort keys %DEFAULT_ARGS }
@@ -49,7 +53,9 @@ sub geometry_types {
 sub json {
     my ( $class, $type, $args ) = @_;
 
-    return $json->encode( { type => $type, %{$args} } ); #$class->$type($args) );
+    return $type eq 'CRS'
+        ? $json->encode($args)
+        : $json->encode( { type => $type, %{$args} } );
 }
 
 sub object {
@@ -61,7 +67,9 @@ sub object {
 
     $args ||= $DEFAULT_ARGS{$type};
 
-    return $object_class->new( { type => $type, %{$args} } );
+    my $construct_args = $type eq 'CRS' ? $args : { type => $type, %{$args} };
+
+    return $object_class->new($construct_args);
 }
 
 # sub Point {
