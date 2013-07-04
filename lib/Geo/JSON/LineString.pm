@@ -11,5 +11,11 @@ use Geo::JSON::Types -types;
 
 has '+coordinates' => ( isa => LineString );
 
+sub all_positions {
+    my $self = shift;
+
+    return [ map { @{$_} } @{ $self->coordinates } ];
+}
+
 1;
 

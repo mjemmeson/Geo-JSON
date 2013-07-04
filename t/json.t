@@ -34,6 +34,14 @@ my @tests = (
                 [ [ [ 1, 2 ], [ 3, 4 ], [ 5, 6 ], [ 7, 8 ], [ 1, 2 ] ] ],
         },
     },
+    {   name  => 'Polygon with bbox',
+        class => 'Polygon',
+        args  => {
+            bbox => [ 1, 2, 7, 8 ],
+            coordinates =>
+                [ [ [ 1, 2 ], [ 3, 4 ], [ 5, 6 ], [ 7, 8 ], [ 1, 2 ] ] ],
+        },
+    },
 );
 
 foreach my $test (@tests) {

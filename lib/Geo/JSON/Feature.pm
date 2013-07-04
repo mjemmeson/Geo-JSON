@@ -24,5 +24,11 @@ has geometry => (
 
 has properties => ( is => 'ro', isa => Maybe [HashRef] );
 
+sub all_positions {
+    my $self = shift;
+
+    return [ $self->geometry->all_positions ];
+}
+
 1;
 

@@ -19,5 +19,10 @@ has features => (
     required => 1
 );
 
+sub all_positions {
+    my $self = shift;
+    return [ map { @{ $_->all_positions } } @{ $self->features } ];
+}
+
 1;
 

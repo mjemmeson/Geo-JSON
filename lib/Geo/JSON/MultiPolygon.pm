@@ -11,5 +11,15 @@ use Geo::JSON::Types -types;
 
 has '+coordinates' => ( isa => Polygons );
 
+sub all_positions {
+    my $self = shift;
+
+    return [
+        map { @{$_} }
+        map { @{$_} }
+        map { @{$_} } @{ $self->coordinates }
+    ];
+}
+
 1;
 

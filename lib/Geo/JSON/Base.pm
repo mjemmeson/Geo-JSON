@@ -7,12 +7,14 @@ package Geo::JSON::Base;
 use Moo;
 
 use Carp;
-use Types::Standard qw/ Maybe /;
+use Types::Standard qw/ Maybe ArrayRef Num /;
 
 use Geo::JSON;
 use Geo::JSON::Types -types;
 
-has crs => ( is => 'ro', isa => Maybe[CRS], coerce => CRS->coercion );
+has crs => ( is => 'ro', isa => Maybe [CRS], coerce => CRS->coercion );
+
+has bbox => ( is => 'rw', isa => Maybe [ ArrayRef [Num] ] );
 
 sub type {
     return ( ( ref $_[0] ) =~ m/::(\w+)$/ )[0];
@@ -35,7 +37,6 @@ sub TO_JSON {
 
     return \%output;
 }
-
 
 1;
 
