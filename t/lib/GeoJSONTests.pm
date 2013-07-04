@@ -42,10 +42,14 @@ my %DEFAULT_ARGS = (
 
 sub types { sort keys %DEFAULT_ARGS }
 
+sub geometry_types {
+    sort grep { $DEFAULT_ARGS{$_}->{coordinates} } keys %DEFAULT_ARGS;
+}
+
 sub json {
     my ( $class, $type, $args ) = @_;
 
-    return $json->encode( $class->$type($args) );
+    return $json->encode( { type => $type, %{$args} } ); #$class->$type($args) );
 }
 
 sub object {
@@ -55,52 +59,50 @@ sub object {
 
     load_class $object_class;
 
-    $args ||= $class->args($type);
+    $args ||= $DEFAULT_ARGS{$type};
 
-    return $object_class->new( $class->$type($args) );
+    return $object_class->new( { type => $type, %{$args} } );
 }
 
-sub args {
-    my ( $class, $type ) = @_;
+# sub Point {
+#     return { coordinates => $_[1]->{coordinates}, type => 'Point' };
+# }
 
-    return $DEFAULT_ARGS{$type};
-}
+# sub MultiPoint {
+#     return { coordinates => $_[1]->{coordinates}, type => 'MultiPoint' };
+# }
 
-sub Point {
-    return { coordinates => $_[1]->{coordinates}, type => 'Point' };
-}
+# sub LineString {
+#     return { coordinates => $_[1]->{coordinates}, type => 'LineString' };
+# }
 
-sub MultiPoint {
-    return { coordinates => $_[1]->{coordinates}, type => 'MultiPoint' };
-}
+# sub MultiLineString {
+#     return { coordinates => $_[1]->{coordinates}, type => 'MultiLineString' };
+# }
 
-sub LineString {
-    return { coordinates => $_[1]->{coordinates}, type => 'LineString' };
-}
+# sub Polygon {
+#     return { coordinates => $_[1]->{coordinates}, type => 'Polygon' };
+# }
 
-sub MultiLineString {
-    return { coordinates => $_[1]->{coordinates}, type => 'MultiLineString' };
-}
+# sub MultiPolygon {
+#     return { coordinates => $_[1]->{coordinates}, type => 'MultiPolygon' };
+# }
 
-sub Polygon {
-    return { coordinates => $_[1]->{coordinates}, type => 'Polygon' };
-}
+# sub Feature {
+#     return {
+#         geometry   => $_[1]->{geometry},
+#         properties => $_[1]->{properties} || {},
+#         type       => 'Feature'
+#     };
+# }
 
-sub MultiPolygon {
-    return { coordinates => $_[1]->{coordinates}, type => 'MultiPolygon' };
-}
-
-sub Feature {
-    return {
-        geometry   => $_[1]->{geometry},
-        properties => $_[1]->{properties} || {},
-        type       => 'Feature'
-    };
-}
-
-sub FeatureCollection {
-    return { features => $_[1]->{features}, type => 'FeatureCollection' };
-}
+# sub FeatureCollection {
+#     return {
+#         features   => $_[1]->{features},
+#         properties => $_[1]->{properties} || {},
+#         type       => 'FeatureCollection'
+#     };
+# }
 
 1;
 

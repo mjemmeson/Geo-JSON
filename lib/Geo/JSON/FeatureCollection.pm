@@ -8,23 +8,16 @@ use Moo;
 extends 'Geo::JSON::Base';
 
 use Carp;
-use Types::Standard qw/ ArrayRef /;
-use Geo::JSON::Types qw/ Feature /;
-use Geo::JSON::Utils;
+use Types::Standard qw/ ArrayRef HashRef /;
 
-has features =>
-    ( is => 'ro', isa => ArrayRef [Feature], required => 1 );
+use Geo::JSON::Types -types;
 
-sub inflate {
-    my ( $class, $args ) = @_;
-
-    my $features = $args->{features} or croak "features missing";
-
-    return $class->new(
-        {   features => [ map { Geo::JSON::Utils::inflate($_) } @{$features} ]
-        }
-    );
-}
+has features => (
+    is       => 'ro',
+    isa      => Features,
+    coerce   => Features->coercion,
+    required => 1
+);
 
 1;
 

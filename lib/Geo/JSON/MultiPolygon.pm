@@ -7,7 +7,7 @@ package Geo::JSON::MultiPolygon;
 use Moo;
 extends 'Geo::JSON::Geometry';
 
-use Geo::JSON::Types qw/ Polygons /;
+use Geo::JSON::Types -types;
 
 has '+coordinates' => ( isa => Polygons );
 

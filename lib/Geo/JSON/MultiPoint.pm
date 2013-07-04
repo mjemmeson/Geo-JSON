@@ -8,7 +8,7 @@ use Moo;
 extends 'Geo::JSON::Geometry';
 
 use Geo::JSON::Point;
-use Geo::JSON::Types qw/ Position Positions /;
+use Geo::JSON::Types -types;
 
 has '+coordinates' => ( isa => Positions );
 

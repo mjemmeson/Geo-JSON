@@ -7,7 +7,7 @@ package Geo::JSON::LineString;
 use Moo;
 extends 'Geo::JSON::Geometry';
 
-use Geo::JSON::Types qw/ LineString /;
+use Geo::JSON::Types -types;
 
 has '+coordinates' => ( isa => LineString );
 

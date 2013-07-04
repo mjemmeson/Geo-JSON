@@ -9,7 +9,18 @@ use warnings;
 use Carp;
 
 use JSON qw/ decode_json /;
-use Geo::JSON::Utils qw/ inflate /;
+
+use Geo::JSON::CRS;
+use Geo::JSON::FeatureCollection;
+use Geo::JSON::Feature;
+use Geo::JSON::GeometryCollection;
+use Geo::JSON::Geometry;
+use Geo::JSON::LineString;
+use Geo::JSON::MultiLineString;
+use Geo::JSON::MultiPoint;
+use Geo::JSON::MultiPolygon;
+use Geo::JSON::Point;
+use Geo::JSON::Polygon;
 
 =head1 SYNOPSIS
 
@@ -89,7 +100,17 @@ sub from_json {
 
     my $data = decode_json($json);
 
-    return inflate $data;
+    croak "from_json requires a JSON object (hashref)" unless ref $data eq 'HASH';
+
+    my $type = delete $data->{type}
+      or croak "Invalid JSON data: no type specified";
+
+    my $geo_json_class = 'Geo::JSON::'. $type;
+
+    eval "require $geo_json_class";
+    croak "Unable to load '$geo_json_class'; $@" if $@;
+
+    return $geo_json_class->new( $data );
 }
 
 =head1 TODO

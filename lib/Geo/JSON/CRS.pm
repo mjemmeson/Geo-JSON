@@ -16,7 +16,7 @@ has type => (
     required => 1
 );
 
-has properties => ( is => 'ro', isa => 'HashRef', required => 1 );
+has properties => ( is => 'ro', isa => HashRef, required => 1 );
 
 =head1 SYNOPSIS
 
