@@ -67,21 +67,6 @@ BEGIN {
 }
 
 use Geo::JSON;
-#  my $Geometry = declare Geometry,
-#         as        Object,
-#         where     {  ref $_ && $_->isa( 'Geo::JSON::Geometry')  };
-#         inline_as { "$_ =~ /^[0-9]\$/ and $_ > 0" };
-
-#      has age => (
-#         is      => "rwp",
-#         isa     => $PositiveInt,
-#         coerce  => $PositiveInt->coercion,
-#      );
-#declare Geometry, as Object, where { ref $_ && $_->isa('Geo::JSON::Geometry') };
-
-#use Geo::JSON::Point;
-#coerce Geometry, from HashRef,
-#    via sub { $_ = Geo::JSON::Point->new( $_ ) };
 
 =head1 TYPES EXPORTED
 
@@ -89,7 +74,15 @@ use Geo::JSON;
 
 =item *
 
+CRS
+
+=item *
+
 Feature
+
+=item *
+
+Features
 
 =item *
 

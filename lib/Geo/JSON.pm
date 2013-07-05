@@ -116,25 +116,5 @@ sub from_json {
     return $geo_json_class->new($data);
 }
 
-=head1 TODO
-
-=over
-
-=item *
-
-Floating point maths, check scientific notation etc
-
-=item *
-
-CRS values
-
-=item *
-
-Validation of lat/long/altitude? (linked to CRS?)
-
-=back
-
-=cut
-
 1;
 

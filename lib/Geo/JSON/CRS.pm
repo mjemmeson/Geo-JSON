@@ -60,6 +60,14 @@ sub TO_JSON {
         }
     );
 
+=head1 DESCRIPTION
+
+Perl class to represent a Coordinate Reference System object. The default
+GeoJSON CRS "is a geographic coordinate reference system, using the WGS84
+datum, and with longitude and latitude units of decimal degrees."
+
+Set a CRS value on a GeoJSON object to change this.
+
 =head1 ATTRIBUTES
 
 =head2 type

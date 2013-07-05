@@ -81,24 +81,6 @@ L<Geo::JSON::FeatureCollection>
 
 Takes a geojson string, returns the object it represents.
 
-=head1 TODO
-
-=over
-
-=item *
-
-Floating point maths, check scientific notation etc
-
-=item *
-
-CRS values
-
-=item *
-
-Validation of lat/long/altitude? (linked to CRS?)
-
-=back
-
 =for :stopwords cpan testmatrix url annocpan anno bugtracker rt cpants kwalitee diff irc mailto metadata placeholders metacpan
 
 =head1 SUPPORT
