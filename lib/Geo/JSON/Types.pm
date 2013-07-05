@@ -66,8 +66,6 @@ BEGIN {
 
 }
 
-use Geo::JSON;
-
 =head1 TYPES EXPORTED
 
 =over

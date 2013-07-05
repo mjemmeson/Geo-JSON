@@ -9,7 +9,6 @@ use Moo;
 use Carp;
 use Types::Standard qw/ Maybe ArrayRef Num /;
 
-use Geo::JSON;
 use Geo::JSON::Types -types;
 
 has crs => ( is => 'ro', isa => Maybe [CRS], coerce => CRS->coercion );

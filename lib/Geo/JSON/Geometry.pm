@@ -19,7 +19,6 @@ sub compute_bbox {
 
 sub all_positions {
     my $self = shift;
-
     return $self->coordinates;
 }
 
