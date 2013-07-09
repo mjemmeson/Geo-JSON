@@ -24,5 +24,20 @@ sub all_positions {
     return [ map { @{ $_->all_positions } } @{ $self->features } ];
 }
 
+=head1 SYNOPSIS
+
+    use Geo::JSON::FeatureCollection;
+    my $fcol = Geo::JSON::FeatureCollection->new({
+         features => \@features,
+    });
+    my $json = $fcol->to_json;
+
+=head1 DESCRIPTION
+
+A GeoJSON object with a features attribute of an arrayref of
+L<Geo::JSON::Feature> objects.
+
+=cut
+
 1;
 

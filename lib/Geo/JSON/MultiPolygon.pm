@@ -21,5 +21,25 @@ sub all_positions {
     ];
 }
 
+=head1 SYNOPSIS
+
+    use Geo::JSON::MultiPolygon;
+    my $mpol = Geo::JSON::MultiPolygon->new({
+        coordinates => [
+            [   [...],     # outer linear ring
+                [...], ... # inner linear ring(s)
+            ],
+            [...],
+            ],
+        },
+    });
+    my $json = $mpol->to_json;
+
+=head1 DESCRIPTION
+
+A GeoJSON object with a coordinates of an arrayref of polygon coordinates.
+
+=cut
+
 1;
 

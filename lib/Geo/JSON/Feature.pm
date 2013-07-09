@@ -30,5 +30,21 @@ sub all_positions {
     return [ $self->geometry->all_positions ];
 }
 
+=head1 SYNOPSIS
+
+    use Geo::JSON::Feature;
+    my $ft = Geo::JSON::Feature->new({
+        geometry   => $geometry_object,
+        properties => \%properties,
+    });
+    my $json = $ft->to_json;
+
+=head1 DESCRIPTION
+
+A GeoJSON object with a geometry attribute of a single Geometry object and
+an optional properties attribute.
+
+=cut
+
 1;
 

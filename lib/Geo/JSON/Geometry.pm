@@ -22,5 +22,12 @@ sub all_positions {
     return $self->coordinates;
 }
 
+=head1 DESCRIPTION
+
+Base class for GeoJSON geometry objects (Point, MultiPoint, LineString,
+MultiLineString, Polygon, MultiPolygon).
+
+=cut
+
 1;
 
