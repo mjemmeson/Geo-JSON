@@ -27,9 +27,10 @@ BEGIN {
     use Geo::JSON::Utils qw/ compare_positions /;
 
     declare Position,    #
-        as Tuple [ Num, Num, Maybe [Num] ];
+        as ArrayRef [Num],    #
+        where { @{$_} >= 2 };
 
-    declare Positions,    #
+    declare Positions,        #
         as ArrayRef [Position],    #
         where { @{$_} > 0 };
 

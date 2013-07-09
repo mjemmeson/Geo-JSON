@@ -2,7 +2,7 @@
 
 use Test::Most;
 
-use Geo::JSON::Utils qw/ compute_bbox /;
+use Geo::JSON::Utils qw/ compute_bbox compare_positions /;
 
 note "compute_bbox";
 
@@ -35,6 +35,31 @@ my @tests = (
 foreach my $test (@tests) {
 
     is_deeply compute_bbox( $test->{positions} ), $test->{bbox}, "bbox ok";
+}
+
+note "compare_positions";
+
+@tests = (
+    {   positions => [ [ 1, 2 ], [ 1, 2 ] ],
+        result => 1,
+    },
+    {   positions => [ [ 1, 2 ], [ 2, 2 ] ],
+        result => 0,
+    },
+    {   positions => [ [ 1, 2, 3 ], [ 1, 2, 1 ] ],
+        result => 0,
+    },
+    {   positions => [ [ 1, 2, 3 ], [ 1, 2, 3 ] ],
+        result => 1,
+    },
+    {   positions => [ [ 1, 2, 3, 4 ], [ 1, 2, 3, 5 ] ],
+        result => 1,
+    },
+);
+
+foreach my $test (@tests) {
+    is compare_positions( @{ $test->{positions} } ), $test->{result},
+        "compare_positions ok";
 }
 
 done_testing();

@@ -72,45 +72,65 @@ sub object {
     return $object_class->new($construct_args);
 }
 
-# sub Point {
-#     return { coordinates => $_[1]->{coordinates}, type => 'Point' };
-# }
-
-# sub MultiPoint {
-#     return { coordinates => $_[1]->{coordinates}, type => 'MultiPoint' };
-# }
-
-# sub LineString {
-#     return { coordinates => $_[1]->{coordinates}, type => 'LineString' };
-# }
-
-# sub MultiLineString {
-#     return { coordinates => $_[1]->{coordinates}, type => 'MultiLineString' };
-# }
-
-# sub Polygon {
-#     return { coordinates => $_[1]->{coordinates}, type => 'Polygon' };
-# }
-
-# sub MultiPolygon {
-#     return { coordinates => $_[1]->{coordinates}, type => 'MultiPolygon' };
-# }
-
-# sub Feature {
-#     return {
-#         geometry   => $_[1]->{geometry},
-#         properties => $_[1]->{properties} || {},
-#         type       => 'Feature'
-#     };
-# }
-
-# sub FeatureCollection {
-#     return {
-#         features   => $_[1]->{features},
-#         properties => $_[1]->{properties} || {},
-#         type       => 'FeatureCollection'
-#     };
-# }
+sub tests {
+    return (
+        {   name  => 'Point, 2 dimensions',
+            class => 'Point',
+            args  => { coordinates => [ 1, 2 ] },
+        },
+        {   name  => 'Point, 3 dimensions',
+            class => 'Point',
+            args  => { coordinates => [ 1, 2, 3 ] },
+        },
+        {   name  => 'Point, lat/long floating points',
+            class => 'Point',
+            args  => { coordinates => [ 57.596278, -13.687306, 21.4 ] },
+        },
+        {   name  => 'Point, with extra dimensions (ignored)',
+            class => 'Point',
+            args =>
+                { coordinates => [ 57.596278, -13.687306, 21.4, 1, 2, 3 ] },
+        },
+        {   class => 'MultiPoint',
+            args  => { coordinates => [ [ 1, 2, 3 ], [ 4, 5, 6 ] ] },
+        },
+        {   class => 'LineString',
+            args  => { coordinates => [ [ 1, 2, 3 ], [ 4, 5, 6 ] ] },
+        },
+        {   class => 'MultiLineString',
+            args  => {
+                coordinates => [
+                    [ [ 1, 2, 3 ], [ 4, 5, 6 ] ],    #
+                    [ [ 7, 8, 9 ], [ 0, 0, 0 ] ]
+                ]
+            },
+        },
+        {   class => 'Polygon',
+            args  => {
+                coordinates =>
+                    [ [ [ 1, 2 ], [ 3, 4 ], [ 5, 6 ], [ 7, 8 ], [ 1, 2 ] ] ],
+            },
+        },
+        {   name  => 'Polygon with holes',
+            class => 'Polygon',
+            args  => {
+                coordinates => [
+                    [ [ 1, 1 ], [ 10, 1 ], [ 10, 10 ], [ 1, 10 ], [ 1, 1 ] ],
+                    [ [ 5, 3 ], [ 5,  4 ], [ 4,  4 ],  [ 4, 3 ],  [ 5, 3 ] ],
+                    [ [ 8, 8 ], [ 8,  9 ], [ 9,  9 ],  [ 9, 8 ],  [ 8, 8 ] ],
+                ],
+            },
+        },
+        {   name  => 'Polygon with bbox',
+            class => 'Polygon',
+            args  => {
+                bbox => [ 1, 2, 7, 8 ],
+                coordinates =>
+                    [ [ [ 1, 2 ], [ 3, 4 ], [ 5, 6 ], [ 7, 8 ], [ 1, 2 ] ] ],
+            },
+        },
+    );
+}
 
 1;
 

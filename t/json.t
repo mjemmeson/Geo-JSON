@@ -7,55 +7,7 @@ use lib 't/lib';
 use Geo::JSON;
 use GeoJSONTests;
 
-my @tests = (
-    {   class => 'Point',
-        args  => { coordinates => [ 1, 2 ] },
-    },
-    {   class => 'Point',
-        args  => { coordinates => [ 1, 2, 3 ] },
-    },
-    {   class => 'Point',
-        args  => { coordinates => [ 57.596278, -13.687306, 21.4 ] },
-    },
-    {   class => 'MultiPoint',
-        args  => { coordinates => [ [ 1, 2, 3 ], [ 4, 5, 6 ] ] },
-    },
-    {   class => 'LineString',
-        args  => { coordinates => [ [ 1, 2, 3 ], [ 4, 5, 6 ] ] },
-    },
-    {   class => 'MultiLineString',
-        args  => {
-            coordinates => [
-                [ [ 1, 2, 3 ], [ 4, 5, 6 ] ],    #
-                [ [ 7, 8, 9 ], [ 0, 0, 0 ] ]
-            ]
-        },
-    },
-    {   class => 'Polygon',
-        args  => {
-            coordinates =>
-                [ [ [ 1, 2 ], [ 3, 4 ], [ 5, 6 ], [ 7, 8 ], [ 1, 2 ] ] ],
-        },
-    },
-    {   name  => 'Polygon with holes',
-        class => 'Polygon',
-        args  => {
-            coordinates => [
-                [ [ 1, 1 ], [ 10, 1 ], [ 10, 10 ], [ 1, 10 ], [ 1, 1 ] ],
-                [ [ 5, 3 ], [ 5,  4 ], [ 4,  4 ],  [ 4, 3 ],  [ 5, 3 ] ],
-                [ [ 8, 8 ], [ 8,  9 ], [ 9,  9 ],  [ 9, 8 ],  [ 8, 8 ] ],
-            ],
-        },
-    },
-    {   name  => 'Polygon with bbox',
-        class => 'Polygon',
-        args  => {
-            bbox => [ 1, 2, 7, 8 ],
-            coordinates =>
-                [ [ [ 1, 2 ], [ 3, 4 ], [ 5, 6 ], [ 7, 8 ], [ 1, 2 ] ] ],
-        },
-    },
-);
+my @tests = GeoJSONTests->tests;
 
 foreach my $test (@tests) {
 

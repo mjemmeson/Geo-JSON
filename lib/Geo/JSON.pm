@@ -76,6 +76,7 @@ number of axes and be in the same axis order.
 =item * C<bbox>
 
 Optional, defining a bounding box that the position(s) are contained by.
+FIXME define bbox
 
 =item * C<crs>
 
