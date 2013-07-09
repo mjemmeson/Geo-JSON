@@ -32,58 +32,101 @@ our $json = JSON->new->canonical(1)->pretty->utf8->convert_blessed(1);
 
 =head1 DESCRIPTION
 
-Convert to and from geojson using Perl objects. See the individual object
-classes for more details.
+Convert to and from geojson using Perl objects. GeoJSON objects represent
+various geographical positions - points, lines, polygons, etc.
 
 Currently in development - feedback welcome.
 
-Currently supports 2 or 3 dimensions (longitude, latitude, altitude). If there
-is a case for increasing this to support a higher or arbitrary number please
-let me know.
+Currently supports 2 or 3 dimensions (longitude, latitude, altitude). Further
+dimensions in positions are ignored for calculations and comparisons, but will
+be read-from and writen-to.
 
 =head1 GEOJSON SPECIFICATION
 
 See: L<http://www.geojson.org/geojson-spec.html>
 
+=head1 GEOJSON MEMBERS (ATTRIBUTES)
+
+See the specification for the full details, but the basics are as follows:
+
+=over
+
+=item * C<type>
+
+Determines the object the json will be turned into
+
+=item * C<position>
+
+Not explicitly named in the json, but an array of at least two numbers
+representing a location in x, y, z order. (Either Easting, Northing, Altitude
+or Longitude, Latitude, Altitude as appropriate).
+
+Additional numbers may be present but ignored by this package for
+calculations.
+
+=item * C<coordinates>
+
+Defined in geometry objects (Point, MultiPoint, LineString, MultiLineString,
+Polygon, MultiPolygon). Will consist of a single position (Point), an array
+of positions (MultiPoint, LineString), an array of arrays of positions
+(MultiLineString, Polygon) or an array of arrays of arrays of positions
+(MultiPolygon). The positions within a single object should all have the same
+number of axes and be in the same axis order.
+
+=item * C<bbox>
+
+Optional, defining a bounding box that the position(s) are contained by.
+
+=item * C<crs>
+
+Optional, defining the Co-ordinates Reference System the object is using. See
+L<Geo::JSON::CRS> for more details.
+
+=back
+
 =head1 OBJECTS
 
 =over
 
-=item *
+=item * L<Geo::JSON::Point>
 
-L<Geo::JSON::Point>
+A single position
 
-=item *
+=item * L<Geo::JSON::MultiPoint>
 
-L<Geo::JSON::MultiPoint>
+An array of positions, representing multiple points
 
-=item *
+=item * L<Geo::JSON::LineString>
 
-L<Geo::JSON::LineString>
+An array of 2 or more positions, represening a connected line
 
-=item *
+=item * L<Geo::JSON::MultiLineString>
 
-L<Geo::JSON::MultiLineString>
+An array of lines
 
-=item *
+=item * L<Geo::JSON::Polygon>
 
-L<Geo::JSON::Polygon>
+An array of lines, defining a polygon. The first line represents the outside
+of the polygon, subsequent lines define any 'holes'. The lines must be
+'linear rings' - 4 or more points, with the first and last points being
+equivalent.
 
-=item *
+=item * L<Geo::JSON::MultiPolygon>
 
-L<Geo::JSON::MultiPolygon>
+An array of polygons
 
-=item *
+=item * L<Geo::JSON::GeometryCollection>
 
-L<Geo::JSON::GeometryCollection>
+An array of any of the above Geometry objects (as attribute C<geometries>)
 
-=item *
+=item * L<Geo::JSON::Feature>
 
-L<Geo::JSON::Feature>
+Any of the above objects (as attribute C<feature>), together with a data
+structure (as attruibute C<properties>)
 
-=item *
+=item * L<Geo::JSON::FeatureCollection>
 
-L<Geo::JSON::FeatureCollection>
+An array of Feature objects (as attribute C<features>)
 
 =back
 
