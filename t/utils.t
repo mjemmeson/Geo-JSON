@@ -27,8 +27,17 @@ my @tests = (
         bbox => [ 1, 2, -10, 3, 4, 5 ],
     },
 
-    {   positions => [ [ 1, 4, 5 ], [ 3, 2, -10 ], [ 6, 6, 6 ] ],
-        bbox => [ 1, 2, -10, 6, 6, 6 ],
+    {   positions => [ [ 1, 4, 5 ], [ 3, 2, -10 ], [ 6, 6, 7 ] ],
+        bbox => [ 1, 2, -10, 6, 6, 7 ],
+    },
+
+    # ignore further dimensions
+    {   positions => [
+            [ 1, 4, 5,   1,  2,  3 ],
+            [ 3, 2, -10, 20, 20, -20 ],
+            [ 6, 6, 7,   20, 0,  -10 ]
+        ],
+        bbox => [ 1, 2, -10, 6, 6, 7 ],
     },
 );
 
@@ -52,6 +61,8 @@ note "compare_positions";
     {   positions => [ [ 1, 2, 3 ], [ 1, 2, 3 ] ],
         result => 1,
     },
+
+    # ignore further dimensions
     {   positions => [ [ 1, 2, 3, 4 ], [ 1, 2, 3, 5 ] ],
         result => 1,
     },

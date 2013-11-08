@@ -2,6 +2,9 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
 
+  - Debugging compute_bbox (ignores dimensions beyond 3)
+  - POD/tests for Geo::JSON::Utils
+
 0.003     2013-11-08 10:33:12 Europe/London
 
   - Removed dynamic loading of classes (unnecessary) - thanks to Tim Bunce for spotting security issue here

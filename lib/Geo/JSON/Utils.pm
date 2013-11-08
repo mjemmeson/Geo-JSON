@@ -12,7 +12,24 @@ use base 'Exporter';
 
 our @EXPORT_OK = qw/ compare_positions compute_bbox /;
 
-# TODO make better - need to ensure floating points are the same 
+=head1 DESCRIPTION
+
+Util methods for L<Geo::JSON>
+
+=head1 METHODS
+
+=head2 compare_positions
+
+    if (Geo::JSON::Utils::compare_positions( $pt1, $pt2 )) {
+        # positions of points are the same
+    }
+
+Compare two points. Compares in up to three dimensions. Any further
+dimensions are ignored.
+
+=cut
+
+# TODO make better - need to ensure floating points are the same
 sub compare_positions {
     my ( $pos1, $pos2 ) = @_;
 
@@ -30,6 +47,16 @@ sub compare_positions {
     return 1;
 }
 
+=head2 compute_bbox
+
+    Geo::JSON::Utils::compute_bbox( \@positions );
+
+Computes a bounding box for an arrayref of positions. Bounding box can
+have either two or three dimensions. Any further dimensions will be
+ignored. Assumes points will have same number of dimensions as the first.
+
+=cut
+
 sub compute_bbox {
     my $positions = shift;    # arrayref of positions
 
@@ -42,7 +69,7 @@ sub compute_bbox {
 
     my $dimensions = defined $positions->[0]->[2] ? 2 : 1;
 
-    my @min = my @max = @{ $positions->[0] };
+    my @min = my @max = @{ $positions->[0] }[ 0 .. $dimensions ];
 
     foreach my $position ( @{$positions} ) {
         foreach my $d ( 0 .. $dimensions ) {
@@ -53,6 +80,18 @@ sub compute_bbox {
 
     return [ @min, @max ];
 }
+
+=head1 TODO
+
+=over
+
+=item *
+
+Improve comparisons of floating point coordinates, look at stringification issues, etc.
+
+=back
+
+=cut
 
 1;
 
