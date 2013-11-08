@@ -4,11 +4,11 @@
 
 =head1 NAME
 
-Geo::JSON - Perl OO interface for geojson 
+Geo::JSON - Perl OO interface for geojson
 
 =head1 VERSION
 
-version 0.002
+version 0.003
 
 =head1 SYNOPSIS
 
@@ -124,6 +124,20 @@ An array of Feature objects (as attribute C<features>)
     my $obj = Geo::JSON->from_json( $json );
 
 Takes a geojson string, returns the object it represents.
+
+=head1 CLASS METHODS
+
+=head2 codec
+
+    Geo::JSON->codec->canonical(1)->pretty;
+    
+    my $prev_codec = Geo::JSON->codec($new_codec);
+
+Set options on or replace L<JSON> codec.
+
+=head1 THANKS
+
+Tim Bunce - for codec suggestions and bug spotting.
 
 =for :stopwords cpan testmatrix url annocpan anno bugtracker rt cpants kwalitee diff irc mailto metadata placeholders metacpan
 

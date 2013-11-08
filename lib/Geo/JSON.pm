@@ -178,5 +178,11 @@ sub codec {
     return $orig;
 }
 
+=head1 THANKS
+
+Tim Bunce - for codec suggestions and bug spotting.
+
+=cut
+
 1;
 
