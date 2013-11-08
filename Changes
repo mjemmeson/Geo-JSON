@@ -2,6 +2,8 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
 
+0.003     2013-11-08 10:33:12 Europe/London
+
   - Removed dynamic loading of classes (unnecessary) - thanks to Tim Bunce for spotting security issue here
   - codec() class method to change JSON behaviour
   - turned off 'pretty' and 'canonical' in default JSON behaviour
