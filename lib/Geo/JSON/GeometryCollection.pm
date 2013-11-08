@@ -5,7 +5,7 @@ package Geo::JSON::GeometryCollection;
 # ABSTRACT: object representing a geojson GeometryCollection
 
 use Moo;
-extends 'Geo::JSON::Base';
+extends 'Geo::JSON::BaseObject';
 
 use Carp;
 use Types::Standard qw/ ArrayRef /;

@@ -5,6 +5,8 @@ package Geo::JSON::CRS;
 # ABSTRACT: Co-ordinate Reference System object
 
 use Moo;
+extends 'Geo::JSON::Base';
+
 use Types::Standard qw/ HashRef /;
 
 use Geo::JSON;
@@ -20,10 +22,7 @@ has type => (
 
 has properties => ( is => 'ro', isa => HashRef, required => 1 );
 
-sub to_json {
-    return $Geo::JSON::json->encode(shift);
-}
-
+# used by JSON 'convert_blessed'
 sub TO_JSON {
     return { type => $_[0]->type, %{ $_[0] } };
 }

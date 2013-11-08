@@ -13,7 +13,7 @@ use Geo::JSON::Types -types;
 
 has '+coordinates' => ( isa => Position );
 
-around compute_bbox => sub {
+before compute_bbox => sub {
     croak "Can't compute_bbox with a single position";
 };
 

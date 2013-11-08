@@ -29,6 +29,8 @@ our $json = JSON->new->utf8->convert_blessed(1);
     use Geo::JSON;
     
     my $obj = Geo::JSON->from_json( $json );
+    
+    $obj->to_json();
 
 =head1 DESCRIPTION
 

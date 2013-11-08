@@ -5,7 +5,7 @@ package Geo::JSON::Geometry;
 # ABSTRACT: object representing a geojson Geometry
 
 use Moo;
-extends 'Geo::JSON::Base';
+extends 'Geo::JSON::BaseObject';
 
 use Types::Standard qw/ Any /;
 

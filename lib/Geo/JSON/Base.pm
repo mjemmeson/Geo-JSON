@@ -9,6 +9,7 @@ use Moo;
 use Carp;
 use Types::Standard qw/ Maybe ArrayRef Num /;
 
+use Geo::JSON;
 use Geo::JSON::Types -types;
 
 has crs => ( is => 'ro', isa => Maybe [CRS], coerce => CRS->coercion );
@@ -19,10 +20,27 @@ sub type {
     return ( ( ref $_[0] ) =~ m/::(\w+)$/ )[0];
 }
 
+=head1 DESCRIPTION
+
+Base class for object representing Geojson types.
+
+=head1 METHODS
+
+=head2 to_json
+
+    $point->to_json();
+    # or with custom JSON codec
+    $point->to_json( $codec );
+
+=cut
+
 sub to_json {
-    return $Geo::JSON::json->encode(shift);
+    my $self = shift;
+    my $codec = shift || $Geo::JSON::json;
+    return $codec->encode($self);
 }
 
+# used by JSON 'convert_blessed'
 sub TO_JSON {
     my $self = $_[0];
 
@@ -31,6 +49,7 @@ sub TO_JSON {
         %{$self},
     );
 
+    # prevent empty 'crs' key
     delete $output{crs}
         unless defined $output{crs};
 
