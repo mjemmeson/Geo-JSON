@@ -1,11 +1,14 @@
 # json.t
 
 use Test::Most;
+use Test::Fatal;
 
 use lib 't/lib';
 
 use Geo::JSON;
 use GeoJSONTests;
+
+ok( Geo::JSON->codec->pretty->canonical(1), "set codec options" );
 
 my @tests = GeoJSONTests->tests;
 
@@ -73,7 +76,20 @@ foreach my $test (@tests) {
     isa_ok $obj, "Geo::JSON::" . $test->{class};
 
     is $obj->to_json, $json, "to_json ok";
+
+    ok my $crs_json = Geo::JSON->codec->decode($json)->{crs}, "got CRS json";
+
+    is( Geo::JSON->codec->encode($crs_json),
+        $crs_obj->to_json, "CRS object json ok" );
 }
+
+note "Invalid object type";
+
+like(
+    exception { Geo::JSON->from_json('{ "type": "XX_INVALID_TYPE_XX" }') },
+    qr/Can't locate object method "new" via package "Geo::JSON::XX_INVALID_TYPE_XX"/,
+    "Dies with invalid type",
+);
 
 done_testing();
 

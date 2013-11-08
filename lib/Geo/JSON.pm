@@ -2,7 +2,7 @@ package Geo::JSON;
 
 # VERSION
 
-# ABSTRACT: Perl OO interface for geojson 
+# ABSTRACT: Perl OO interface for geojson
 
 use strict;
 use warnings;
@@ -22,7 +22,7 @@ use Geo::JSON::MultiPolygon;
 use Geo::JSON::Point;
 use Geo::JSON::Polygon;
 
-our $json = JSON->new->canonical(1)->pretty->utf8->convert_blessed(1);
+our $json = JSON->new->utf8->convert_blessed(1);
 
 =head1 SYNOPSIS
 
@@ -154,10 +154,28 @@ sub from_json {
 
     my $geo_json_class = 'Geo::JSON::' . $type;
 
-    eval "require $geo_json_class";
-    croak "Unable to load '$geo_json_class'; $@" if $@;
-
     return $geo_json_class->new($data);
+}
+
+=head1 CLASS METHODS
+
+=head2 codec
+
+    Geo::JSON->codec->canonical(1)->pretty;
+    
+    my $prev_codec = Geo::JSON->codec($new_codec);
+
+Set options on or replace L<JSON> codec.
+
+=cut
+
+sub codec {
+    my $class = shift;
+
+    my $orig = $json;
+    $json = shift if @_;
+
+    return $orig;
 }
 
 1;

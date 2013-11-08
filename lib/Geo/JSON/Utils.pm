@@ -54,6 +54,5 @@ sub compute_bbox {
     return [ @min, @max ];
 }
 
-
 1;
 

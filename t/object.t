@@ -7,6 +7,8 @@ use GeoJSONTests;
 
 use Geo::JSON;
 
+ok( Geo::JSON->codec->pretty->canonical(1), "set code options" );
+
 ok my $object = GeoJSONTests->object($_), "created $_ with default args"
     foreach GeoJSONTests->types;
 

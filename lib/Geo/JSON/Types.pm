@@ -55,13 +55,13 @@ BEGIN {
     class_type Feature,  { class => 'Geo::JSON::Feature' };
     class_type Geometry, { class => 'Geo::JSON::Geometry' };
 
-    coerce CRS, from HashRef, q{ "Geo::JSON::CRS"->new($_) };
+    coerce CRS, from HashRef, q{ 'Geo::JSON::CRS'->new($_) };
 
     coerce Feature, from HashRef,
-        q{ ("Geo::JSON::".(delete $_->{type}))->new($_) };
+        q{ ('Geo::JSON::'.(delete $_->{type}))->new($_) };
 
     coerce Geometry, from HashRef,
-        q{ ("Geo::JSON::".(delete $_->{type}))->new($_) };
+        q{ ('Geo::JSON::'.(delete $_->{type}))->new($_) };
 
     declare Features, as ArrayRef [Feature], coercion => 1;
 
