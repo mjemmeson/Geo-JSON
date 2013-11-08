@@ -72,63 +72,63 @@
    "provides" : {
       "Geo::JSON" : {
          "file" : "lib/Geo/JSON.pm",
-         "version" : "0.003"
+         "version" : "0.004"
       },
       "Geo::JSON::Base" : {
          "file" : "lib/Geo/JSON/Base.pm",
-         "version" : "0.003"
+         "version" : "0.004"
       },
       "Geo::JSON::CRS" : {
          "file" : "lib/Geo/JSON/CRS.pm",
-         "version" : "0.003"
+         "version" : "0.004"
       },
       "Geo::JSON::Feature" : {
          "file" : "lib/Geo/JSON/Feature.pm",
-         "version" : "0.003"
+         "version" : "0.004"
       },
       "Geo::JSON::FeatureCollection" : {
          "file" : "lib/Geo/JSON/FeatureCollection.pm",
-         "version" : "0.003"
+         "version" : "0.004"
       },
       "Geo::JSON::Geometry" : {
          "file" : "lib/Geo/JSON/Geometry.pm",
-         "version" : "0.003"
+         "version" : "0.004"
       },
       "Geo::JSON::GeometryCollection" : {
          "file" : "lib/Geo/JSON/GeometryCollection.pm",
-         "version" : "0.003"
+         "version" : "0.004"
       },
       "Geo::JSON::LineString" : {
          "file" : "lib/Geo/JSON/LineString.pm",
-         "version" : "0.003"
+         "version" : "0.004"
       },
       "Geo::JSON::MultiLineString" : {
          "file" : "lib/Geo/JSON/MultiLineString.pm",
-         "version" : "0.003"
+         "version" : "0.004"
       },
       "Geo::JSON::MultiPoint" : {
          "file" : "lib/Geo/JSON/MultiPoint.pm",
-         "version" : "0.003"
+         "version" : "0.004"
       },
       "Geo::JSON::MultiPolygon" : {
          "file" : "lib/Geo/JSON/MultiPolygon.pm",
-         "version" : "0.003"
+         "version" : "0.004"
       },
       "Geo::JSON::Point" : {
          "file" : "lib/Geo/JSON/Point.pm",
-         "version" : "0.003"
+         "version" : "0.004"
       },
       "Geo::JSON::Polygon" : {
          "file" : "lib/Geo/JSON/Polygon.pm",
-         "version" : "0.003"
+         "version" : "0.004"
       },
       "Geo::JSON::Types" : {
          "file" : "lib/Geo/JSON/Types.pm",
-         "version" : "0.003"
+         "version" : "0.004"
       },
       "Geo::JSON::Utils" : {
          "file" : "lib/Geo/JSON/Utils.pm",
-         "version" : "0.003"
+         "version" : "0.004"
       }
    },
    "release_status" : "stable",
@@ -143,6 +143,6 @@
          "web" : "https://github.com/mjemmeson/geo-json"
       }
    },
-   "version" : "0.003"
+   "version" : "0.004"
 }
 
