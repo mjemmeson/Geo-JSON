@@ -60,7 +60,7 @@ Determines the object the json will be turned into
 =item * C<position>
 
 Not explicitly named in the json, but an array of at least two numbers
-representing a location in x, y, z order. (Either Easting, Northing, Altitude
+representing a location in x, y, z order (either Easting, Northing, Altitude
 or Longitude, Latitude, Altitude as appropriate).
 
 Additional numbers may be present but ignored by this package for
@@ -78,7 +78,13 @@ number of axes and be in the same axis order.
 =item * C<bbox>
 
 Optional, defining a bounding box that the position(s) are contained by.
-FIXME define bbox
+
+The box is defined by a array of 2*n items, where n is the number of
+dimensions in a position. The items are the lowest value for an axis followed
+by the highest value for an axis, in the axis order used in the positions.
+
+The Co-ordinates Reference System for the bounding box is assumed to match
+that of the object.
 
 =item * C<crs>
 
@@ -158,6 +164,16 @@ sub from_json {
 
     return $geo_json_class->new($data);
 }
+
+=head2 to_json
+
+    $obj->to_json();
+    $obj->to_json( $codec );
+
+Call on a Geo::JSON object. Returns the JSON that represents the object.
+
+Pass in an optional L<JSON> codec to modify the default behaviour of the JSON
+returned.
 
 =head1 CLASS METHODS
 
