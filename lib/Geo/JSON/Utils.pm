@@ -51,9 +51,11 @@ sub compare_positions {
 
     Geo::JSON::Utils::compute_bbox( \@positions );
 
-Computes a bounding box for an arrayref of positions. Bounding box can
-have either two or three dimensions. Any further dimensions will be
-ignored. Assumes points will have same number of dimensions as the first.
+Computes a bounding box for an arrayref of positions. The bounding box is
+a list of all minimum values for all axes followed by all maximum values. The
+values are in the order the axis they appear in the position geometry.
+
+Assumes all points will have same number of dimensions as the first.
 
 =cut
 
@@ -67,14 +69,14 @@ sub compute_bbox {
 
     # Assumes all have same number of dimensions
 
-    my $dimensions = defined $positions->[0]->[2] ? 2 : 1;
+    my $dimensions = scalar @{ $positions->[0] } - 1;
 
-    my @min = my @max = @{ $positions->[0] }[ 0 .. $dimensions ];
+    my @min = my @max = @{ $positions->[0] };
 
     foreach my $position ( @{$positions} ) {
         foreach my $d ( 0 .. $dimensions ) {
             $min[$d] = $position->[$d] if $position->[$d] < $min[$d];
-            $max[$d] = $position->[$d] if $position->[$d] > $min[$d];
+            $max[$d] = $position->[$d] if $position->[$d] > $max[$d];
         }
     }
 
