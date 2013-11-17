@@ -35,5 +35,14 @@ sub to_json {
     return $codec->encode($self);
 }
 
+sub TO_JSON {
+    my $self = $_[0];
+
+    return {
+        type => $self->type,
+        %{$self},
+    };
+}
+
 1;
 

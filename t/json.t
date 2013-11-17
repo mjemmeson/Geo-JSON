@@ -22,6 +22,8 @@ foreach my $test (@tests) {
 
     isa_ok $obj, "Geo::JSON::" . $test->{class};
 
+    is_deeply $obj->bbox, $test->{bbox}, "bbox ok" if $test->{bbox};;
+
     is $obj->to_json, $json, "to_json ok";
 }
 
