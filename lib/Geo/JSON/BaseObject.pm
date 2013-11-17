@@ -17,10 +17,6 @@ has crs => ( is => 'ro', isa => Maybe [CRS], coerce => CRS->coercion );
 
 has bbox => ( is => 'rw', isa => Maybe [ ArrayRef [Num] ] );
 
-sub type {
-    return ( ( ref $_[0] ) =~ m/::(\w+)$/ )[0];
-}
-
 =head1 DESCRIPTION
 
 Base class for Geojson objects.
@@ -43,7 +39,6 @@ sub TO_JSON {
         unless defined $output{crs};
 
     return \%output;
-
 }
 
 1;

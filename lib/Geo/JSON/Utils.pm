@@ -12,6 +12,10 @@ use base 'Exporter';
 
 our @EXPORT_OK = qw/ compare_positions compute_bbox /;
 
+=head1 SYNOPSIS
+
+    use Geo::JSON::Utils qw/ compare_positions compute_bbox /;
+
 =head1 DESCRIPTION
 
 Util methods for L<Geo::JSON>
@@ -44,12 +48,13 @@ sub compare_positions {
             || ( !defined $pos1->[$dim] && defined $pos2->[$dim] )
             || ( $pos1->[$dim] != $pos2->[$dim] );
     }
+
     return 1;
 }
 
 =head2 compute_bbox
 
-    Geo::JSON::Utils::compute_bbox( \@positions );
+    my $bbox = Geo::JSON::Utils::compute_bbox( \@positions );
 
 Computes a bounding box for an arrayref of positions. The bounding box is
 a list of all minimum values for all axes followed by all maximum values. The

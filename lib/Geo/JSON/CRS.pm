@@ -22,11 +22,6 @@ has type => (
 
 has properties => ( is => 'ro', isa => HashRef, required => 1 );
 
-# used by JSON 'convert_blessed'
-sub TO_JSON {
-    return { type => $_[0]->type, %{ $_[0] } };
-}
-
 =head1 SYNOPSIS
 
     use Geo::JSON::CRS;

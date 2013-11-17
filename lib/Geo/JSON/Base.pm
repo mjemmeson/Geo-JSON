@@ -38,13 +38,9 @@ sub to_json {
     return $codec->encode($self);
 }
 
+# used by JSON 'convert_blessed'
 sub TO_JSON {
-    my $self = $_[0];
-
-    return {
-        type => $self->type,
-        %{$self},
-    };
+    return { type => $_[0]->type, %{ $_[0] } };
 }
 
 1;
