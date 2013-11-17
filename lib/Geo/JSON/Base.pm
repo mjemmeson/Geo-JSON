@@ -24,8 +24,11 @@ method.
 =head2 to_json
 
     $point->to_json();
+
     # or with custom JSON codec
     $point->to_json( $codec );
+
+Returns JSON string representing this object.
 
 =cut
 
