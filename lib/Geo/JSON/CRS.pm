@@ -67,6 +67,8 @@ datum, and with longitude and latitude units of decimal degrees."
 
 Set a CRS value on a GeoJSON object to change this.
 
+See L<Geo::JSON> for more details.
+
 =head1 ATTRIBUTES
 
 =head2 type

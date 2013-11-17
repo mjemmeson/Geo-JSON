@@ -21,5 +21,29 @@ sub type {
     return ( ( ref $_[0] ) =~ m/::(\w+)$/ )[0];
 }
 
+=head1 DESCRIPTION
+
+Base class for Geojson objects.
+
+See L<Geo::JSON> for more details.
+
+=cut
+
+# used by JSON 'convert_blessed'
+sub TO_JSON {
+    my $self = $_[0];
+
+    my %output = (
+        type => $self->type,
+        %{$self},
+    );
+
+    # prevent empty 'crs' key
+    delete $output{crs}
+        unless defined $output{crs};
+
+    return \%output;
+}
+
 1;
 

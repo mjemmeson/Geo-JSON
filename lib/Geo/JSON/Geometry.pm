@@ -27,6 +27,8 @@ sub all_positions {
 Base class for GeoJSON geometry objects (Point, MultiPoint, LineString,
 MultiLineString, Polygon, MultiPolygon).
 
+See L<Geo::JSON> for more details.
+
 =cut
 
 1;

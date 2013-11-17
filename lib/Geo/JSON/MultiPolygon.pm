@@ -39,6 +39,8 @@ sub all_positions {
 
 A GeoJSON object with a coordinates of an arrayref of polygon coordinates.
 
+See L<Geo::JSON> for more details.
+
 =cut
 
 1;

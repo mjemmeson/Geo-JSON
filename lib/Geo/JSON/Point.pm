@@ -29,6 +29,8 @@ before compute_bbox => sub {
 
 A GeoJSON object with a coordinates attribute of a single position.
 
+See L<Geo::JSON> for more details.
+
 =cut
 
 1;

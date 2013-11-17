@@ -44,6 +44,8 @@ sub all_positions {
 A GeoJSON object with a geometry attribute of a single Geometry object and
 an optional properties attribute.
 
+See L<Geo::JSON> for more details.
+
 =cut
 
 1;

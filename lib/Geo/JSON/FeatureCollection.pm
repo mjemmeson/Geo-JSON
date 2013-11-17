@@ -37,6 +37,8 @@ sub all_positions {
 A GeoJSON object with a features attribute of an arrayref of
 L<Geo::JSON::Feature> objects.
 
+See L<Geo::JSON> for more details.
+
 =cut
 
 1;

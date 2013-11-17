@@ -34,6 +34,8 @@ A GeoJSON object with a geometries attribute consisting of an arrayref of
 Geometry objects (Point, MultiPoint, LineString, MultiLineString, Polygon,
 MultiPolygon).
 
+See L<Geo::JSON> for more details.
+
 =cut
 
 1;

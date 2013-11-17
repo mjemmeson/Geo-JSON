@@ -30,6 +30,8 @@ sub all_positions {
 A GeoJSON object with a coordinates attribute of an arrayref of
 positions.
 
+See L<Geo::JSON> for more details.
+
 =cut
 
 1;

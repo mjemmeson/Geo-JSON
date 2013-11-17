@@ -67,6 +67,29 @@ BEGIN {
 
 }
 
+=head1 SYNOPSIS
+
+    use Geo::JSON::Types -types;
+
+    has crs          => ( is => 'ro', isa => CRS );
+    has feature      => ( is => 'ro', isa => Feature );
+    has features     => ( is => 'ro', isa => Features );
+    has geometry     => ( is => 'ro', isa => Geometry );
+    has linear_ring  => ( is => 'ro', isa => LinearRing );
+    has line_string  => ( is => 'ro', isa => LineString );
+    has line_strings => ( is => 'ro', isa => LineStrings );
+    has polygon      => ( is => 'ro', isa => Polygon );
+    has polygons     => ( is => 'ro', isa => Polygons );
+    has position     => ( is => 'ro', isa => Position );
+    has positions    => ( is => 'ro', isa => Positions );
+
+=head1 DESCRIPTION
+
+L<Type::Tiny> data types to represent the types used by L<Geo::JSON>
+objects, the types are listed below.
+
+See L<Geo::JSON> for more details.
+
 =head1 TYPES EXPORTED
 
 =over
