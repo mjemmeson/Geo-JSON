@@ -15,8 +15,7 @@ my %DEFAULT_ARGS = (
     MultiLineString =>
         { coordinates => [ [ [ 1, 2 ], [ 3, 4 ] ], [ [ 5, 6 ], [ 7, 8 ] ] ] },
     Polygon => {
-        coordinates =>
-            [ [ [ 1, 2 ], [ 3, 4 ], [ 5, 6 ], [ 7, 8 ], [ 1, 2 ] ] ]
+        coordinates => [ [ [ 1, 2 ], [ 3, 4 ], [ 5, 6 ], [ 7, 8 ], [ 1, 2 ] ] ]
     },
     MultiPolygon => {
         coordinates => [
@@ -88,14 +87,15 @@ sub tests {
         },
         {   name  => 'Point, with extra dimensions (ignored)',
             class => 'Point',
-            args =>
-                { coordinates => [ 57.596278, -13.687306, 21.4, 1, 2, 3 ] },
+            args => { coordinates => [ 57.596278, -13.687306, 21.4, 1, 2, 3 ] },
         },
         {   class => 'MultiPoint',
             args  => { coordinates => [ [ 1, 2, 3 ], [ 4, 5, 6 ] ] },
+            compute_bbox => [ 1, 2, 3, 4, 5, 6 ],
         },
         {   class => 'LineString',
             args  => { coordinates => [ [ 1, 2, 3 ], [ 4, 5, 6 ] ] },
+            compute_bbox => [ 1, 2, 3, 4, 5, 6 ],
         },
         {   class => 'MultiLineString',
             args  => {
@@ -104,12 +104,14 @@ sub tests {
                     [ [ 7, 8, 9 ], [ 0, 0, 0 ] ]
                 ]
             },
+            compute_bbox => [ 0, 0, 0, 7, 8, 9 ],
         },
         {   class => 'Polygon',
             args  => {
                 coordinates =>
                     [ [ [ 1, 2 ], [ 3, 4 ], [ 5, 6 ], [ 7, 8 ], [ 1, 2 ] ] ],
             },
+            compute_bbox => [ 1, 2, 7, 8 ],
         },
         {   name  => 'Polygon with holes',
             class => 'Polygon',
@@ -120,6 +122,7 @@ sub tests {
                     [ [ 8, 8 ], [ 8,  9 ], [ 9,  9 ],  [ 9, 8 ],  [ 8, 8 ] ],
                 ],
             },
+            compute_bbox => [ 1, 1, 10, 10 ],
         },
         {   name  => 'Polygon with bbox',
             class => 'Polygon',
@@ -128,6 +131,7 @@ sub tests {
                 coordinates =>
                     [ [ [ 1, 2 ], [ 3, 4 ], [ 5, 6 ], [ 7, 8 ], [ 1, 2 ] ] ],
             },
+            compute_bbox => [ 1, 2, 7, 8 ],
         },
     );
 }

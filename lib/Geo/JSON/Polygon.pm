@@ -14,10 +14,7 @@ has '+coordinates' => ( isa => Polygon );
 sub all_positions {
     my $self = shift;
 
-    return [
-        map { @{$_} }
-        map { @{$_} } @{ $self->coordinates }
-    ];
+    return [ map { @{$_} } @{ $self->coordinates } ];
 }
 
 =head1 SYNOPSIS

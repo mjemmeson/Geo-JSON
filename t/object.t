@@ -22,6 +22,12 @@ foreach my $test ( GeoJSONTests->tests ) {
     is_deeply $obj->$_, $test->{args}->{$_}, "args $_ set ok"
         foreach sort keys %{ $test->{args} };
 
+    if ( my $bbox = $test->{compute_bbox} ) {
+        is_deeply $obj->compute_bbox, $bbox, "compute_bbox() ok";
+    } else {
+        dies_ok { $obj->compute_bbox } "Can't compute_bbox()";
+    }
+
     # roundtrip testing
 
     my $json = GeoJSONTests->json( $test->{class}, $test->{args} );

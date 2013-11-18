@@ -16,7 +16,6 @@ sub all_positions {
 
     return [
         map { @{$_} }
-        map { @{$_} }
         map { @{$_} } @{ $self->coordinates }
     ];
 }

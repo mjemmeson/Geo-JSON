@@ -162,7 +162,10 @@ returned.
 
     my $obj = Geo::JSON->load( { type => 'Point', coordinates => ... } );
 
-Creates a Geo::JSON object from a hashref. 
+Creates a Geo::JSON object from a hashref.
+
+This is used for coercion of attributes during object creation, and probably
+should not be called directly otherwise. 
 
 =cut
 
