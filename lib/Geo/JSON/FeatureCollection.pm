@@ -5,7 +5,7 @@ package Geo::JSON::FeatureCollection;
 # ABSTRACT: object representing a geojson FeatureCollection
 
 use Moo;
-extends 'Geo::JSON::BaseObject';
+extends 'Geo::JSON::Base';
 
 use Carp;
 use Types::Standard qw/ ArrayRef HashRef /;

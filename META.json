@@ -42,6 +42,7 @@
          "requires" : {
             "Carp" : "0",
             "Exporter" : "0",
+            "Geo::JSON::Role::JSON" : "0",
             "JSON" : "0",
             "List::Util" : "0",
             "Moo" : "0",
@@ -78,10 +79,6 @@
       },
       "Geo::JSON::Base" : {
          "file" : "lib/Geo/JSON/Base.pm",
-         "version" : "0.005"
-      },
-      "Geo::JSON::BaseObject" : {
-         "file" : "lib/Geo/JSON/BaseObject.pm",
          "version" : "0.005"
       },
       "Geo::JSON::CRS" : {

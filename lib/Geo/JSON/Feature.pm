@@ -5,7 +5,7 @@ package Geo::JSON::Feature;
 # ABSTRACT: object representing a geojson Feature
 
 use Moo;
-extends 'Geo::JSON::BaseObject';
+extends 'Geo::JSON::Base';
 
 use Carp;
 use Type::Utils qw( class_type );

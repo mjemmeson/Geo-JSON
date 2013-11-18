@@ -5,7 +5,7 @@ package Geo::JSON::Point;
 # ABSTRACT: object representing a geojson Point
 
 use Moo;
-extends 'Geo::JSON::BaseObject';
+extends 'Geo::JSON::Base';
 with 'Geo::JSON::Role::Geometry';
 
 use Carp;

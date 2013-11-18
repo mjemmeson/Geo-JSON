@@ -5,7 +5,7 @@ package Geo::JSON::LineString;
 # ABSTRACT: object representing a geojson LineString
 
 use Moo;
-extends 'Geo::JSON::BaseObject';
+extends 'Geo::JSON::Base';
 with 'Geo::JSON::Role::Geometry';
 
 use Geo::JSON::Types -types;

@@ -5,7 +5,7 @@ package Geo::JSON::MultiLineString;
 # ABSTRACT: object representing a geojson MultiLineString
 
 use Moo;
-extends 'Geo::JSON::BaseObject';
+extends 'Geo::JSON::Base';
 with 'Geo::JSON::Role::Geometry';
 
 use Geo::JSON::Types -types;
