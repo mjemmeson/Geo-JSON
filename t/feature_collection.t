@@ -27,5 +27,7 @@ ok my $feature_collection = $pkg->new(
 
 isa_ok $feature_collection, $pkg;
 
+is_deeply $feature_collection->compute_bbox, [ 1, 2, 9, 8 ], "compute_bbox";
+
 done_testing();
 

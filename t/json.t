@@ -89,7 +89,7 @@ note "Invalid object type";
 
 like(
     exception { Geo::JSON->from_json('{ "type": "XX_INVALID_TYPE_XX" }') },
-    qr/Can't locate object method "new" via package "Geo::JSON::XX_INVALID_TYPE_XX"/,
+    qr/Invalid type 'XX_INVALID_TYPE_XX'/,
     "Dies with invalid type",
 );
 

@@ -4,6 +4,9 @@ Revision history for {{$dist->name}}
 
   - Allow JSON codec as option to ->to_json() method
   - Debug and document Utils::bbox() - restored full dimensions as per geojson spec
+  - Made Geometry a Role
+  - Added compute_bbox to Feature/FeatureCollection
+  - POD throughout
 
 0.004     2013-11-08 11:22:59 Europe/London
 

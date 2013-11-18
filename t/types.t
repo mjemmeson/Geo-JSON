@@ -23,7 +23,8 @@ my ($geometry_obj,$feature_obj);
         = Geometry->coerce( { type => 'Point', coordinates => [ 1, 2 ] } ),
         "coerce HashRef";
 
-    isa_ok $coerced, 'Geo::JSON::Geometry';
+    isa_ok $coerced, 'Geo::JSON::Point';
+    ok $coerced->does('Geo::JSON::Role::Geometry'), "Geometry role consumed";
     is_deeply $coerced->coordinates, [ 1, 2 ], "attributes set ok";
 
     $geometry_obj = $obj;
@@ -71,7 +72,7 @@ my ($geometry_obj,$feature_obj);
 
     my $features = [
         {   type     => 'Feature',
-            geometry => { type => 'Geometry', coordinates => [ 1, 2 ] }
+            geometry => { type => 'Point', coordinates => [ 1, 2 ] }
         }
     ];
 
@@ -81,8 +82,7 @@ my ($geometry_obj,$feature_obj);
     ok @{ $coerced || [] }, "got arrayref with value(s)";
     is scalar( @{$coerced} ), 1, "one item";
     isa_ok $coerced->[0], 'Geo::JSON::Feature';
-    isa_ok $coerced->[0]->geometry, 'Geo::JSON::Geometry';
-
+    isa_ok $coerced->[0]->geometry, 'Geo::JSON::Point';
 }
 
 done_testing();

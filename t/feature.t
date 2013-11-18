@@ -25,6 +25,8 @@ while ( my ( $type, $object ) = each %geometry_objects ) {
         "new, with properties";
 
     isa_ok $feature, $pkg;
+
+    # TODO compute_bbox tests
 }
 
 done_testing();

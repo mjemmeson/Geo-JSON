@@ -5,7 +5,8 @@ package Geo::JSON::Polygon;
 # ABSTRACT: object representing a geojson Polygon
 
 use Moo;
-extends 'Geo::JSON::Geometry';
+extends 'Geo::JSON::BaseObject';
+with 'Geo::JSON::Role::Geometry';
 
 use Geo::JSON::Types -types;
 

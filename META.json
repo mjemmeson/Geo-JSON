@@ -43,11 +43,14 @@
             "Carp" : "0",
             "Exporter" : "0",
             "JSON" : "0",
+            "List::Util" : "0",
             "Moo" : "0",
+            "Moo::Role" : "0",
             "Type::Library" : "0",
             "Type::Utils" : "0",
             "Types::Standard" : "0",
             "base" : "0",
+            "constant" : "0",
             "perl" : "5.008",
             "strict" : "0",
             "warnings" : "0"
@@ -60,7 +63,6 @@
             "File::Find" : "0",
             "File::Spec::Functions" : "0",
             "File::Temp" : "0",
-            "List::Util" : "0",
             "Path::Class" : "0",
             "Test::Fatal" : "0",
             "Test::More" : "0",
@@ -94,10 +96,6 @@
          "file" : "lib/Geo/JSON/FeatureCollection.pm",
          "version" : "0.005"
       },
-      "Geo::JSON::Geometry" : {
-         "file" : "lib/Geo/JSON/Geometry.pm",
-         "version" : "0.005"
-      },
       "Geo::JSON::GeometryCollection" : {
          "file" : "lib/Geo/JSON/GeometryCollection.pm",
          "version" : "0.005"
@@ -124,6 +122,10 @@
       },
       "Geo::JSON::Polygon" : {
          "file" : "lib/Geo/JSON/Polygon.pm",
+         "version" : "0.005"
+      },
+      "Geo::JSON::Role::Geometry" : {
+         "file" : "lib/Geo/JSON/Role/Geometry.pm",
          "version" : "0.005"
       },
       "Geo::JSON::Types" : {

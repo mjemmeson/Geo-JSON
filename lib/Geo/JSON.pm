@@ -9,6 +9,15 @@ use warnings;
 use Carp;
 
 use JSON qw/ decode_json /;
+use List::Util qw/ first /;
+
+use constant GEOMETRY_OBJECTS => [
+    qw/ Point MultiPoint LineString MultiLineString Polygon MultiPolygon GeometryCollection /
+];
+use constant GEOJSON_OBJECTS => [    #
+    @{ +GEOMETRY_OBJECTS }, qw/ Feature FeatureCollection /
+];
+
 
 our $json = JSON->new->utf8->convert_blessed(1);
 
@@ -81,7 +90,7 @@ L<Geo::JSON::CRS> for more details.
 
 =back
 
-=head1 OBJECTS
+=head1 GEOMETRY OBJECTS
 
 =over
 
@@ -116,10 +125,14 @@ An array of polygons
 
 An array of any of the above Geometry objects (as attribute C<geometries>)
 
+=head1 FEATURE OBJECTS
+
 =item * L<Geo::JSON::Feature>
 
 Any of the above objects (as attribute C<feature>), together with a data
 structure (as attruibute C<properties>)
+
+=head1 FEATURE COLLECTION OBJECTS
 
 =item * L<Geo::JSON::FeatureCollection>
 
@@ -177,7 +190,8 @@ sub load {
 
     my $geo_json_class = 'Geo::JSON::' . $type;
 
-    croak "Invalid type '$type'" if $type =~ m/\W/;
+    croak "Invalid type '$type'"
+        unless first { $type eq $_ } @{ +GEOJSON_OBJECTS };
 
     eval "require $geo_json_class";
 

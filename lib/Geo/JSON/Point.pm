@@ -5,7 +5,8 @@ package Geo::JSON::Point;
 # ABSTRACT: object representing a geojson Point
 
 use Moo;
-extends 'Geo::JSON::Geometry';
+extends 'Geo::JSON::BaseObject';
+with 'Geo::JSON::Role::Geometry';
 
 use Carp;
 
@@ -16,6 +17,8 @@ has '+coordinates' => ( isa => Position );
 before compute_bbox => sub {
     croak "Can't compute_bbox with a single position";
 };
+
+sub all_positions { [ shift->coordinates ] }
 
 =head1 SYNOPSIS
 
