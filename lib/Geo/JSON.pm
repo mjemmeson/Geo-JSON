@@ -125,14 +125,22 @@ An array of polygons
 
 An array of any of the above Geometry objects (as attribute C<geometries>)
 
+=back
+
 =head1 FEATURE OBJECTS
+
+=over
 
 =item * L<Geo::JSON::Feature>
 
 Any of the above objects (as attribute C<feature>), together with a data
 structure (as attruibute C<properties>)
 
+=back
+
 =head1 FEATURE COLLECTION OBJECTS
+
+=over
 
 =item * L<Geo::JSON::FeatureCollection>
 
