@@ -2,10 +2,10 @@
 
 use Test::Most;
 
+use Geo::JSON;
+
 use lib 't/lib';
 use GeoJSONTests;
-
-use Geo::JSON;
 
 ok( Geo::JSON->codec->pretty->canonical(1), "set code options" );
 

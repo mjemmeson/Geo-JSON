@@ -11,13 +11,11 @@ use Types::Standard qw/ HashRef /;
 
 use Geo::JSON;
 
-has type => (
-    is  => 'ro',
+has '+type' => (
     isa => sub {
         die "CRS type must be either 'name' or 'link'"
             unless $_[0] && ( $_[0] eq 'name' || $_[0] eq 'link' );
     },
-    required => 1
 );
 
 has properties => ( is => 'ro', isa => HashRef, required => 1 );

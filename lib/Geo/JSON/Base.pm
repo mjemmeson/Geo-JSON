@@ -10,9 +10,14 @@ use Carp;
 
 use Geo::JSON;
 
-sub type {
-    return ( ( ref $_[0] ) =~ m/::(\w+)$/ )[0];
-}
+use Types::Standard -types;
+
+has type => (
+    is       => 'ro',
+    isa      => Str,
+    default  => sub { ( ( ref $_[0] ) =~ m/::(\w+)$/ )[0] },
+    required => 1,
+);
 
 =head1 DESCRIPTION
 

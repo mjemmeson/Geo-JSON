@@ -10,18 +10,6 @@ use Carp;
 
 use JSON qw/ decode_json /;
 
-use Geo::JSON::CRS;
-use Geo::JSON::FeatureCollection;
-use Geo::JSON::Feature;
-use Geo::JSON::GeometryCollection;
-use Geo::JSON::Geometry;
-use Geo::JSON::LineString;
-use Geo::JSON::MultiLineString;
-use Geo::JSON::MultiPoint;
-use Geo::JSON::MultiPolygon;
-use Geo::JSON::Point;
-use Geo::JSON::Polygon;
-
 our $json = JSON->new->utf8->convert_blessed(1);
 
 =head1 SYNOPSIS
@@ -157,12 +145,7 @@ sub from_json {
     croak "from_json requires a JSON object (hashref)"
         unless ref $data eq 'HASH';
 
-    my $type = delete $data->{type}
-        or croak "Invalid JSON data: no type specified";
-
-    my $geo_json_class = 'Geo::JSON::' . $type;
-
-    return $geo_json_class->new($data);
+    return $class->load($data);
 }
 
 =head2 to_json
@@ -174,6 +157,29 @@ Call on a Geo::JSON object. Returns the JSON that represents the object.
 
 Pass in an optional L<JSON> codec to modify the default behaviour of the JSON
 returned.
+
+=head2 load
+
+    my $obj = Geo::JSON->load( { type => 'Point', coordinates => ... } );
+
+Creates a Geo::JSON object from a hashref. 
+
+=cut
+
+sub load {
+    my ( $class, $data ) = @_;
+
+    my $type = delete $data->{type}
+        or croak "Invalid JSON data: no type specified";
+
+    my $geo_json_class = 'Geo::JSON::' . $type;
+
+    croak "Invalid type '$type'" if $type =~ m/\W/;
+
+    eval "require $geo_json_class";
+
+    return $geo_json_class->new($data);
+}
 
 =head1 CLASS METHODS
 

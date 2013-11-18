@@ -57,14 +57,11 @@ BEGIN {
 
     coerce CRS, from HashRef, q{ 'Geo::JSON::CRS'->new($_) };
 
-    coerce Feature, from HashRef,
-        q{ ('Geo::JSON::'.(delete $_->{type}))->new($_) };
+    coerce Feature, from HashRef, q{ 'Geo::JSON'->load( $_ ) };
 
-    coerce Geometry, from HashRef,
-        q{ ('Geo::JSON::'.(delete $_->{type}))->new($_) };
+    coerce Geometry, from HashRef, q{ 'Geo::JSON'->load( $_ ) };
 
     declare Features, as ArrayRef [Feature], coercion => 1;
-
 }
 
 =head1 SYNOPSIS
