@@ -5,7 +5,7 @@ package Geo::JSON::CRS;
 # ABSTRACT: Co-ordinate Reference System object
 
 use Moo;
-with 'Geo::JSON::Role::JSON';
+with 'Geo::JSON::Role::ToJson';
 
 use Types::Standard qw/ HashRef /;
 

@@ -1,4 +1,4 @@
-package Geo::JSON::Role::JSON;
+package Geo::JSON::Role::ToJson;
 
 # VERSION
 

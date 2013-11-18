@@ -42,11 +42,11 @@
          "requires" : {
             "Carp" : "0",
             "Exporter" : "0",
-            "Geo::JSON::Role::JSON" : "0",
             "JSON" : "0",
             "List::Util" : "0",
             "Moo" : "0",
             "Moo::Role" : "0",
+            "Role::Tiny" : "0",
             "Type::Library" : "0",
             "Type::Utils" : "0",
             "Types::Standard" : "0",
@@ -123,6 +123,10 @@
       },
       "Geo::JSON::Role::Geometry" : {
          "file" : "lib/Geo/JSON/Role/Geometry.pm",
+         "version" : "0.005"
+      },
+      "Geo::JSON::Role::ToJson" : {
+         "file" : "lib/Geo/JSON/Role/ToJson.pm",
          "version" : "0.005"
       },
       "Geo::JSON::Types" : {
