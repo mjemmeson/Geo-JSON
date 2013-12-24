@@ -231,6 +231,16 @@ sub codec {
 
 Tim Bunce - for codec suggestions and bug spotting.
 
+=head1 SEE ALSO
+
+=over
+
+=item *
+
+L<Geo::JSON::Simple> - simple interface to create Geo::JSON objects.
+
+=back
+
 =cut
 
 1;
