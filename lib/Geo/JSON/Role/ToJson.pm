@@ -4,7 +4,7 @@ package Geo::JSON::Role::ToJson;
 
 # ABSTRACT: Moo::Role providing to_json() methods for a geojson object
 
-use Role::Tiny;
+use Moo::Role;
 
 =head1 DESCRIPTION
 
