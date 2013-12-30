@@ -2,6 +2,8 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
 
+  - POD + tidy
+
 0.005     2013-11-18 18:32:32 Europe/London
 
   - Allow JSON codec as option to ->to_json() method
