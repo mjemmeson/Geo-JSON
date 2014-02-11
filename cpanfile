@@ -2,7 +2,7 @@ requires "Carp" => "0";
 requires "Exporter" => "0";
 requires "JSON" => "0";
 requires "List::Util" => "0";
-requires "Moo" => "0";
+requires "Moo" => "1.004003";
 requires "Moo::Role" => "0";
 requires "Type::Library" => "0";
 requires "Type::Utils" => "0";
@@ -34,7 +34,8 @@ on 'configure' => sub {
 };
 
 on 'develop' => sub {
-  requires "Dist::Zilla" => "5.006";
+  requires "Dist::Zilla" => "5.009";
+  requires "Dist::Zilla::Plugin::Prereqs" => "0";
   requires "Dist::Zilla::PluginBundle::DAGOLDEN" => "0";
   requires "Dist::Zilla::PluginBundle::Filter" => "0";
   requires "File::Spec" => "0";
