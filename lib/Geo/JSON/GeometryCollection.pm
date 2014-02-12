@@ -1,8 +1,6 @@
 package Geo::JSON::GeometryCollection;
 
-# VERSION
-
-# ABSTRACT: object representing a geojson GeometryCollection
+our $VERSION = '0.006';
 
 use Moo;
 extends 'Geo::JSON::Base';
@@ -19,6 +17,10 @@ sub all_positions {
 
     return [ map { @{ $_->all_positions } } @{ $self->geometries } ];
 }
+
+=head1 NAME
+
+Geo::JSON::GeometryCollection - object representing a geojson GeometryCollection
 
 =head1 SYNOPSIS
 

@@ -1,8 +1,6 @@
 package Geo::JSON::Types;
 
-# VERSION
-
-# ABSTRACT: Type::Tiny data types for Geo::JSON classes
+our $VERSION = '0.006';
 
 use strict;
 use warnings;
@@ -65,6 +63,10 @@ BEGIN {
 
     declare Features, as ArrayRef [Feature], coercion => 1;
 }
+
+=head1 NAME
+
+Geo::JSON::Types - Type::Tiny data types for Geo::JSON classes
 
 =head1 SYNOPSIS
 

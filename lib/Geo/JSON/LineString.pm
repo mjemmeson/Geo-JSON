@@ -1,8 +1,6 @@
 package Geo::JSON::LineString;
 
-# VERSION
-
-# ABSTRACT: object representing a geojson LineString
+our $VERSION = '0.006';
 
 use Moo;
 extends 'Geo::JSON::Base';
@@ -11,6 +9,10 @@ with 'Geo::JSON::Role::Geometry';
 use Geo::JSON::Types -types;
 
 has '+coordinates' => ( isa => LineString );
+
+=head1 NAME
+
+Geo::JSON::LineString - object representing a geojson LineString
 
 =head1 SYNOPSIS
 

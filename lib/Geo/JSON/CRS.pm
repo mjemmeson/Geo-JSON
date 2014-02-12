@@ -1,8 +1,6 @@
 package Geo::JSON::CRS;
 
-# VERSION
-
-# ABSTRACT: Co-ordinate Reference System object
+our $VERSION = '0.006';
 
 use Moo;
 with 'Geo::JSON::Role::ToJson';
@@ -21,6 +19,10 @@ has type => (
 );
 
 has properties => ( is => 'ro', isa => HashRef, required => 1 );
+
+=head1 NAME
+
+Geo::JSON::CRS - Co-ordinate Reference System object
 
 =head1 SYNOPSIS
 

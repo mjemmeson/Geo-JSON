@@ -1,8 +1,6 @@
 package Geo::JSON;
 
-# VERSION
-
-# ABSTRACT: Perl OO interface for geojson
+our $VERSION = '0.006';
 
 use strict;
 use warnings;
@@ -20,6 +18,10 @@ use constant GEOJSON_OBJECTS => [    #
 
 
 our $json = JSON->new->utf8->convert_blessed(1);
+
+=head1 NAME
+
+Geo::JSON - Perl OO interface for geojson
 
 =head1 SYNOPSIS
 
@@ -240,6 +242,34 @@ Tim Bunce - for codec suggestions and bug spotting.
 L<Geo::JSON::Simple> - simple interface to create Geo::JSON objects.
 
 =back
+
+=head1 SUPPORT
+
+=head2 Bugs / Feature Requests
+
+Please report any bugs or feature requests through the issue tracker
+at L<https://github.com/mjemmeson/Geo-JSON/issues>.
+You will be notified automatically of any progress on your issue.
+
+=head2 Source Code
+
+This is open source software.  The code repository is available for
+public review and contribution under the terms of the license.
+
+L<https://github.com/mjemmeson/Geo-JSON>
+
+  git clone https://github.com/mjemmeson/Geo-JSON.git
+
+=head1 AUTHOR
+
+Michael Jemmeson <mjemmeson@cpan.org>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2013 by Michael Jemmeson <mjemmeson@cpan.org>.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
 =cut
 

@@ -1,8 +1,6 @@
 package Geo::JSON::FeatureCollection;
 
-# VERSION
-
-# ABSTRACT: object representing a geojson FeatureCollection
+our $VERSION = '0.006';
 
 use Moo;
 extends 'Geo::JSON::Base';
@@ -25,6 +23,10 @@ sub all_positions {
 
     return [ map { @{ $_->all_positions } } @{ $self->features } ];
 }
+
+=head1 NAME
+
+Geo::JSON::FeatureCollection - object representing a geojson FeatureCollection
 
 =head1 SYNOPSIS
 

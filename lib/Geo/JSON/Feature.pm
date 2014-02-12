@@ -1,8 +1,6 @@
 package Geo::JSON::Feature;
 
-# VERSION
-
-# ABSTRACT: object representing a geojson Feature
+our $VERSION = '0.006';
 
 use Moo;
 extends 'Geo::JSON::Base';
@@ -28,6 +26,10 @@ has properties => ( is => 'ro', isa => Maybe [HashRef] );
 sub all_positions {
     return shift->geometry->all_positions;
 }
+
+=head1 NAME
+
+Geo::JSON::Feature - object representing a geojson Feature
 
 =head1 SYNOPSIS
 

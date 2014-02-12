@@ -1,6 +1,6 @@
 package Geo::JSON::Role::Geometry;
 
-# VERSION
+our $VERSION = '0.006';
 
 # ABSTRACT: Moo::Role representing behaviour of a geojson Geometry object
 

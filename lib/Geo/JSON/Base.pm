@@ -1,8 +1,6 @@
 package Geo::JSON::Base;
 
-# VERSION
-
-# ABSTRACT: Base class for Geo::JSON objects
+our $VERSION = '0.006';
 
 use Moo;
 with 'Geo::JSON::Role::ToJson';
@@ -25,6 +23,10 @@ has type => (
 has crs => ( is => 'ro', isa => Maybe [CRS], coerce => CRS->coercion );
 
 has bbox => ( is => 'rw', isa => Maybe [ ArrayRef [Num] ] );
+
+=head1 NAME
+
+Geo::JSON::Base - Baseclass for Geo::JSON objects
 
 =head1 DESCRIPTION
 

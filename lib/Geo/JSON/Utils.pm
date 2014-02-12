@@ -1,8 +1,6 @@
 package Geo::JSON::Utils;
 
-# VERSION
-
-# ABSTRACT: Util methods for Geo::JSON classes
+our $VERSION = '0.006';
 
 use strict;
 use warnings;
@@ -11,6 +9,10 @@ use Carp;
 use base 'Exporter';
 
 our @EXPORT_OK = qw/ compare_positions compute_bbox /;
+
+=head1 NAME
+
+Geo::JSON::Utils - Util methods for Geo::JSON classes
 
 =head1 SYNOPSIS
 
