@@ -2,6 +2,11 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
 
+  [Maintenance]
+  - POD + tidy
+  - Switched to Dist::Milla
+  - Fixed conflict on threaded Perl (Moo prereq version)
+
 0.006     2013-12-30 10:18:41 Europe/London
 
   - POD + tidy
