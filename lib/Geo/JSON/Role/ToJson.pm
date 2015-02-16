@@ -1,6 +1,6 @@
 package Geo::JSON::Role::ToJson;
 
-# VERSION
+our $VERSION = '0.006';
 
 # ABSTRACT: Moo::Role providing to_json() methods for a geojson object
 

@@ -1,6 +1,6 @@
 package Geo::JSON::Types;
 
-# VERSION
+our $VERSION = '0.006';
 
 use strict;
 use warnings;

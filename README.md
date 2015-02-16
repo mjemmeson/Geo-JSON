@@ -15,8 +15,6 @@ Geo::JSON - Perl OO interface for geojson
 Convert to and from geojson using Perl objects. GeoJSON objects represent
 various geographical positions - points, lines, polygons, etc.
 
-Currently in development - feedback welcome.
-
 Currently supports 2 or 3 dimensions (longitude, latitude, altitude). Further
 dimensions in positions are ignored for calculations and comparisons, but will
 be read-from and written-to.
@@ -138,7 +136,7 @@ returned.
 Creates a Geo::JSON object from a hashref.
 
 This is used for coercion of attributes during object creation, and probably
-should not be called directly otherwise. 
+should not be called directly otherwise.
 
 # CLASS METHODS
 
@@ -181,7 +179,7 @@ Michael Jemmeson <mjemmeson@cpan.org>
 
 # COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Michael Jemmeson <mjemmeson@cpan.org>.
+This software is copyright (c) 2015 by Michael Jemmeson <mjemmeson@cpan.org>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

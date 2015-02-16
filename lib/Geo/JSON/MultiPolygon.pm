@@ -1,6 +1,6 @@
 package Geo::JSON::MultiPolygon;
 
-# VERSION
+our $VERSION = '0.006';
 
 # ABSTRACT: object representing a geojson MultiPolygon
 

@@ -1,6 +1,6 @@
 package Geo::JSON::Base;
 
-# VERSION
+our $VERSION = '0.006';
 
 use Moo;
 with 'Geo::JSON::Role::ToJson';
