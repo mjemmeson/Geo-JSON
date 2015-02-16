@@ -53,7 +53,6 @@ BEGIN {
 
     class_type CRS,      { class => 'Geo::JSON::CRS' };
     class_type Feature,  { class => 'Geo::JSON::Feature' };
-#    class_type Geometry, { class => 'Geo::JSON::Geometry' };
 
     coerce CRS, from HashRef, q{ 'Geo::JSON::CRS'->new($_) };
 

@@ -25,7 +25,7 @@ Geo::JSON::MultiPoint
 =head1 SYNOPSIS
 
     use Geo::JSON::MultiPoint;
-    my $mpt = Geo::JSON::Point->new({
+    my $mpt = Geo::JSON::MultiPoint->new({
         coordinates => [ [ 51.50101, -0.14159 ],
                          [ 57.596278, -13.687306 ],
                        ],
