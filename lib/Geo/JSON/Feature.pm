@@ -1,6 +1,6 @@
 package Geo::JSON::Feature;
 
-our $VERSION = '0.006';
+our $VERSION = '0.007';
 
 use Moo;
 extends 'Geo::JSON::Base';

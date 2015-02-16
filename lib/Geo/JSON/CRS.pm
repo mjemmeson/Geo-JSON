@@ -1,6 +1,6 @@
 package Geo::JSON::CRS;
 
-our $VERSION = '0.006';
+our $VERSION = '0.007';
 
 use Moo;
 with 'Geo::JSON::Role::ToJson';

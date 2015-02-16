@@ -2,6 +2,8 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
 
+0.007  2015-02-16 14:30:38 GMT
+
   [Maintenance]
   - POD + tidy
   - Switched to Dist::Milla
