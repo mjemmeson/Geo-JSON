@@ -1,6 +1,6 @@
 package Geo::JSON::LineString;
 
-our $VERSION = '0.006';
+# VERSION
 
 use Moo;
 extends 'Geo::JSON::Base';
@@ -9,6 +9,12 @@ with 'Geo::JSON::Role::Geometry';
 use Geo::JSON::Types -types;
 
 has '+coordinates' => ( isa => LineString );
+
+1;
+
+__END__
+
+=encoding utf-8
 
 =head1 NAME
 
@@ -30,6 +36,4 @@ positions.
 See L<Geo::JSON> for more details.
 
 =cut
-
-1;
 

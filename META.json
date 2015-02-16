@@ -4,7 +4,7 @@
       "Michael Jemmeson <mjemmeson@cpan.org>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 5.006, CPAN::Meta::Converter version 2.120921",
+   "generated_by" : "Dist::Zilla version 5.025, Dist::Milla version v1.0.5, CPAN::Meta::Converter version 2.143240",
    "license" : [
       "perl_5"
    ],
@@ -17,23 +17,29 @@
       "directory" : [
          "t",
          "xt",
-         "examples",
-         "corpus"
-      ],
-      "package" : [
-         "DB"
+         "inc",
+         "share",
+         "eg",
+         "examples"
       ]
    },
    "prereqs" : {
       "configure" : {
          "requires" : {
-            "ExtUtils::MakeMaker" : "6.30"
+            "ExtUtils::MakeMaker" : "6.17",
+            "Module::Build::Tiny" : "0.039"
          }
       },
       "develop" : {
          "requires" : {
+            "Dist::Milla" : "v1.0.14",
+            "File::Spec" : "0",
+            "File::Temp" : "0",
+            "IO::Handle" : "0",
+            "IPC::Open3" : "0",
             "Pod::Coverage::TrustPod" : "0",
             "Test::CPAN::Meta" : "0",
+            "Test::More" : "0",
             "Test::Pod" : "1.41",
             "Test::Pod::Coverage" : "1.08"
          }
@@ -44,9 +50,8 @@
             "Exporter" : "0",
             "JSON" : "0",
             "List::Util" : "0",
-            "Moo" : "0",
+            "Moo" : "1.004003",
             "Moo::Role" : "0",
-            "Role::Tiny" : "0",
             "Type::Library" : "0",
             "Type::Utils" : "0",
             "Types::Standard" : "0",
@@ -58,12 +63,14 @@
          }
       },
       "test" : {
+         "recommends" : {
+            "CPAN::Meta" : "0",
+            "CPAN::Meta::Requirements" : "0"
+         },
          "requires" : {
             "Class::Load" : "0",
             "ExtUtils::MakeMaker" : "0",
-            "File::Find" : "0",
             "File::Spec::Functions" : "0",
-            "File::Temp" : "0",
             "Path::Class" : "0",
             "Test::Fatal" : "0",
             "Test::More" : "0",
@@ -75,81 +82,84 @@
    "provides" : {
       "Geo::JSON" : {
          "file" : "lib/Geo/JSON.pm",
-         "version" : "0.005"
+         "version" : "0.006"
       },
       "Geo::JSON::Base" : {
          "file" : "lib/Geo/JSON/Base.pm",
-         "version" : "0.005"
+         "version" : "0.006"
       },
       "Geo::JSON::CRS" : {
          "file" : "lib/Geo/JSON/CRS.pm",
-         "version" : "0.005"
+         "version" : "0.006"
       },
       "Geo::JSON::Feature" : {
          "file" : "lib/Geo/JSON/Feature.pm",
-         "version" : "0.005"
+         "version" : "0.006"
       },
       "Geo::JSON::FeatureCollection" : {
          "file" : "lib/Geo/JSON/FeatureCollection.pm",
-         "version" : "0.005"
+         "version" : "0.006"
       },
       "Geo::JSON::GeometryCollection" : {
          "file" : "lib/Geo/JSON/GeometryCollection.pm",
-         "version" : "0.005"
+         "version" : "0.006"
       },
       "Geo::JSON::LineString" : {
          "file" : "lib/Geo/JSON/LineString.pm",
-         "version" : "0.005"
+         "version" : "0.006"
       },
       "Geo::JSON::MultiLineString" : {
          "file" : "lib/Geo/JSON/MultiLineString.pm",
-         "version" : "0.005"
+         "version" : "0.006"
       },
       "Geo::JSON::MultiPoint" : {
          "file" : "lib/Geo/JSON/MultiPoint.pm",
-         "version" : "0.005"
+         "version" : "0.006"
       },
       "Geo::JSON::MultiPolygon" : {
          "file" : "lib/Geo/JSON/MultiPolygon.pm",
-         "version" : "0.005"
+         "version" : "0.006"
       },
       "Geo::JSON::Point" : {
          "file" : "lib/Geo/JSON/Point.pm",
-         "version" : "0.005"
+         "version" : "0.006"
       },
       "Geo::JSON::Polygon" : {
          "file" : "lib/Geo/JSON/Polygon.pm",
-         "version" : "0.005"
+         "version" : "0.006"
       },
       "Geo::JSON::Role::Geometry" : {
          "file" : "lib/Geo/JSON/Role/Geometry.pm",
-         "version" : "0.005"
+         "version" : "0.006"
       },
       "Geo::JSON::Role::ToJson" : {
          "file" : "lib/Geo/JSON/Role/ToJson.pm",
-         "version" : "0.005"
+         "version" : "0.006"
       },
       "Geo::JSON::Types" : {
          "file" : "lib/Geo/JSON/Types.pm",
-         "version" : "0.005"
+         "version" : "0.006"
       },
       "Geo::JSON::Utils" : {
          "file" : "lib/Geo/JSON/Utils.pm",
-         "version" : "0.005"
+         "version" : "0.006"
       }
    },
    "release_status" : "stable",
    "resources" : {
       "bugtracker" : {
-         "web" : "https://github.com/mjemmeson/geo-json/issues"
+         "web" : "https://github.com/mjemmeson/Geo-JSON/issues"
       },
-      "homepage" : "https://metacpan.org/release/Geo-JSON",
+      "homepage" : "https://github.com/mjemmeson/Geo-JSON",
       "repository" : {
          "type" : "git",
-         "url" : "git://github.com/mjemmeson/geo-json.git",
-         "web" : "https://github.com/mjemmeson/geo-json"
+         "url" : "https://github.com/mjemmeson/Geo-JSON.git",
+         "web" : "https://github.com/mjemmeson/Geo-JSON"
       }
    },
-   "version" : "0.005"
+   "version" : "0.006",
+   "x_contributors" : [
+      "Michael Jemmeson <michael.jemmeson@cpan.org>"
+   ]
 }
 

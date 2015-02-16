@@ -1,6 +1,6 @@
 package Geo::JSON::MultiPolygon;
 
-our $VERSION = '0.006';
+# VERSION
 
 # ABSTRACT: object representing a geojson MultiPolygon
 
@@ -20,6 +20,16 @@ sub all_positions {
         map { @{$_} } @{ $self->coordinates }
     ];
 }
+
+1;
+
+__END__
+
+=encoding utf-8
+
+=head1 NAME
+
+Geo::JSON::MultiPolygon
 
 =head1 SYNOPSIS
 
@@ -42,6 +52,4 @@ A GeoJSON object with a coordinates of an arrayref of polygon coordinates.
 See L<Geo::JSON> for more details.
 
 =cut
-
-1;
 

@@ -1,6 +1,6 @@
 package Geo::JSON::Types;
 
-our $VERSION = '0.006';
+# VERSION
 
 use strict;
 use warnings;
@@ -63,6 +63,12 @@ BEGIN {
 
     declare Features, as ArrayRef [Feature], coercion => 1;
 }
+
+1;
+
+__END__
+
+=encoding utf-8
 
 =head1 NAME
 
@@ -142,6 +148,4 @@ Polygons
 =back
 
 =cut
-
-1;
 

@@ -1,6 +1,6 @@
 package Geo::JSON::MultiPoint;
 
-our $VERSION = '0.006';
+# VERSION
 
 # ABSTRACT: object representing a geojson MultiPoint
 
@@ -11,6 +11,16 @@ with 'Geo::JSON::Role::Geometry';
 use Geo::JSON::Types -types;
 
 has '+coordinates' => ( isa => Positions );
+
+1;
+
+__END__
+
+=encoding utf-8
+
+=head1 NAME
+
+Geo::JSON::MultiPoint
 
 =head1 SYNOPSIS
 
@@ -30,6 +40,4 @@ positions.
 See L<Geo::JSON> for more details.
 
 =cut
-
-1;
 

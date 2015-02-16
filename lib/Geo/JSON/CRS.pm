@@ -1,6 +1,6 @@
 package Geo::JSON::CRS;
 
-our $VERSION = '0.006';
+# VERSION
 
 use Moo;
 with 'Geo::JSON::Role::ToJson';
@@ -19,6 +19,12 @@ has type => (
 );
 
 has properties => ( is => 'ro', isa => HashRef, required => 1 );
+
+1;
+
+__END__
+
+=encoding utf-8
 
 =head1 NAME
 
@@ -83,6 +89,4 @@ For objects of type 'link', 'href' and 'type' keys are required. Link types
 are not restricted, examples include "proj4", "ogcwkt", "esriwkt",
 
 =cut
-
-1;
 

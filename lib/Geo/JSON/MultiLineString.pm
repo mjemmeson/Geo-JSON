@@ -1,6 +1,6 @@
 package Geo::JSON::MultiLineString;
 
-our $VERSION = '0.006';
+# VERSION
 
 # ABSTRACT: object representing a geojson MultiLineString
 
@@ -17,6 +17,16 @@ sub all_positions {
 
     return [ map { @{$_} } @{ $self->coordinates } ];
 }
+
+1;
+
+__END__
+
+=encoding utf-8
+
+=head1 NAME
+
+Geo::JSON::MultiLineString
 
 =head1 SYNOPSIS
 
@@ -35,6 +45,4 @@ arrayrefs of positions.
 See L<Geo::JSON> for more details.
 
 =cut
-
-1;
 

@@ -1,6 +1,6 @@
 package Geo::JSON::Base;
 
-our $VERSION = '0.006';
+# VERSION
 
 use Moo;
 with 'Geo::JSON::Role::ToJson';
@@ -23,6 +23,36 @@ has type => (
 has crs => ( is => 'ro', isa => Maybe [CRS], coerce => CRS->coercion );
 
 has bbox => ( is => 'rw', isa => Maybe [ ArrayRef [Num] ] );
+
+# used by JSON 'convert_blessed'
+sub TO_JSON {
+    my $self = $_[0];
+
+    my %output = (
+        type => $self->type,
+        %{$self},
+    );
+
+    # prevent empty 'crs' key
+    delete $output{crs}
+        unless defined $output{crs};
+
+    return \%output;
+}
+
+sub compute_bbox {
+    return Geo::JSON::Utils::compute_bbox( shift->all_positions );
+}
+
+sub all_positions {
+    return shift->coordinates;
+}
+
+1;
+
+__END__
+
+=encoding utf-8
 
 =head1 NAME
 
@@ -52,24 +82,6 @@ used by this object.
 Optional arrayref representing a bounding box that encloses the points defined
 by this Geojson object. See L<Geo::JSON> for more details.
 
-=cut
-
-# used by JSON 'convert_blessed'
-sub TO_JSON {
-    my $self = $_[0];
-
-    my %output = (
-        type => $self->type,
-        %{$self},
-    );
-
-    # prevent empty 'crs' key
-    delete $output{crs}
-        unless defined $output{crs};
-
-    return \%output;
-}
-
 =head1 METHODS
 
 =head2 compute_bbox
@@ -83,14 +95,4 @@ Returns arrayref of all positions (each an arrayref of C<n> dimensions) in the
 object's geometry.
 
 =cut
-
-sub compute_bbox {
-    return Geo::JSON::Utils::compute_bbox( shift->all_positions );
-}
-
-sub all_positions {
-    return shift->coordinates;
-}
-
-1;
 

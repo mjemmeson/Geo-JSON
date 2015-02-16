@@ -1,6 +1,6 @@
 package Geo::JSON::Role::Geometry;
 
-our $VERSION = '0.006';
+# VERSION
 
 # ABSTRACT: Moo::Role representing behaviour of a geojson Geometry object
 
@@ -9,6 +9,16 @@ use Moo::Role;
 use Types::Standard qw/ Any /;
 
 has coordinates => ( is => 'ro', isa => Any, required => 1 );
+
+1;
+
+__END__
+
+=encoding utf-8
+
+=head1 NAME
+
+Geo::JSON::Role::Geometry
 
 =head1 DESCRIPTION
 
@@ -22,6 +32,4 @@ See L<Geo::JSON> for more details.
 =head2 coordinates
 
 =cut
-
-1;
 

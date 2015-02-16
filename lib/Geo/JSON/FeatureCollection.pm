@@ -1,6 +1,6 @@
 package Geo::JSON::FeatureCollection;
 
-our $VERSION = '0.006';
+# VERSION
 
 use Moo;
 extends 'Geo::JSON::Base';
@@ -23,6 +23,12 @@ sub all_positions {
 
     return [ map { @{ $_->all_positions } } @{ $self->features } ];
 }
+
+1;
+
+__END__
+
+=encoding utf-8
 
 =head1 NAME
 
@@ -58,6 +64,4 @@ L<Geo::JSON::Feature>
 =back
 
 =cut
-
-1;
 

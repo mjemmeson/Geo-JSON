@@ -34,10 +34,8 @@ on 'configure' => sub {
 };
 
 on 'develop' => sub {
-  requires "Dist::Zilla" => "5.009";
-  requires "Dist::Zilla::Plugin::Prereqs" => "0";
-  requires "Dist::Zilla::PluginBundle::DAGOLDEN" => "0";
-  requires "Dist::Zilla::PluginBundle::Filter" => "0";
+  requires "Dist::Milla" => "1.0.14";
+  requires "Dist::Zilla::Plugin::MetaProvides" => "0";
   requires "File::Spec" => "0";
   requires "File::Temp" => "0";
   requires "IO::Handle" => "0";

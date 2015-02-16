@@ -1,6 +1,6 @@
 package Geo::JSON::Polygon;
 
-our $VERSION = '0.006';
+# VERSION
 
 # ABSTRACT: object representing a geojson Polygon
 
@@ -17,6 +17,16 @@ sub all_positions {
 
     return [ map { @{$_} } @{ $self->coordinates } ];
 }
+
+1;
+
+__END__
+
+=encoding utf-8
+
+=head1 NAME
+
+Geo::JSON::Polygon
 
 =head1 SYNOPSIS
 
@@ -37,6 +47,4 @@ or holes.
 See L<Geo::JSON> for more details.
 
 =cut
-
-1;
 

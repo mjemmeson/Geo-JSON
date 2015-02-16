@@ -1,6 +1,6 @@
 package Geo::JSON::Feature;
 
-our $VERSION = '0.006';
+# VERSION
 
 use Moo;
 extends 'Geo::JSON::Base';
@@ -26,6 +26,12 @@ has properties => ( is => 'ro', isa => Maybe [HashRef] );
 sub all_positions {
     return shift->geometry->all_positions;
 }
+
+1;
+
+__END__
+
+=encoding utf-8
 
 =head1 NAME
 
@@ -78,6 +84,4 @@ L<Geo::JSON::MultiPolygon>
 See L<Geo::JSON> for more details.
 
 =cut
-
-1;
 

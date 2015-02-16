@@ -1,6 +1,6 @@
 package Geo::JSON::GeometryCollection;
 
-our $VERSION = '0.006';
+# VERSION
 
 use Moo;
 extends 'Geo::JSON::Base';
@@ -17,6 +17,12 @@ sub all_positions {
 
     return [ map { @{ $_->all_positions } } @{ $self->geometries } ];
 }
+
+1;
+
+__END__
+
+=encoding utf-8
 
 =head1 NAME
 
@@ -39,6 +45,4 @@ or MultiPolygon).
 See L<Geo::JSON> for more details.
 
 =cut
-
-1;
 

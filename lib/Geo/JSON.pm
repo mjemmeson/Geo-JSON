@@ -16,8 +16,49 @@ use constant GEOJSON_OBJECTS => [    #
     @{ +GEOMETRY_OBJECTS }, qw/ Feature FeatureCollection /
 ];
 
-
 our $json = JSON->new->utf8->convert_blessed(1);
+
+sub from_json {
+    my ( $class, $json ) = @_;
+
+    my $data = decode_json($json);
+
+    croak "from_json requires a JSON object (hashref)"
+        unless ref $data eq 'HASH';
+
+    return $class->load($data);
+}
+
+sub load {
+    my ( $class, $data ) = @_;
+
+    my $type = delete $data->{type}
+        or croak "Invalid JSON data: no type specified";
+
+    my $geo_json_class = 'Geo::JSON::' . $type;
+
+    croak "Invalid type '$type'"
+        unless first { $type eq $_ } @{ +GEOJSON_OBJECTS };
+
+    eval "require $geo_json_class";
+
+    return $geo_json_class->new($data);
+}
+
+sub codec {
+    my $class = shift;
+
+    my $orig = $json;
+    $json = shift if @_;
+
+    return $orig;
+}
+
+1;
+
+__END__
+
+=encoding utf-8
 
 =head1 NAME
 
@@ -35,8 +76,6 @@ Geo::JSON - Perl OO interface for geojson
 
 Convert to and from geojson using Perl objects. GeoJSON objects represent
 various geographical positions - points, lines, polygons, etc.
-
-Currently in development - feedback welcome.
 
 Currently supports 2 or 3 dimensions (longitude, latitude, altitude). Further
 dimensions in positions are ignored for calculations and comparisons, but will
@@ -158,19 +197,6 @@ An array of Feature objects (as attribute C<features>)
 
 Takes a geojson string, returns the object it represents.
 
-=cut
-
-sub from_json {
-    my ( $class, $json ) = @_;
-
-    my $data = decode_json($json);
-
-    croak "from_json requires a JSON object (hashref)"
-        unless ref $data eq 'HASH';
-
-    return $class->load($data);
-}
-
 =head2 to_json
 
     $obj->to_json();
@@ -188,25 +214,7 @@ returned.
 Creates a Geo::JSON object from a hashref.
 
 This is used for coercion of attributes during object creation, and probably
-should not be called directly otherwise. 
-
-=cut
-
-sub load {
-    my ( $class, $data ) = @_;
-
-    my $type = delete $data->{type}
-        or croak "Invalid JSON data: no type specified";
-
-    my $geo_json_class = 'Geo::JSON::' . $type;
-
-    croak "Invalid type '$type'"
-        unless first { $type eq $_ } @{ +GEOJSON_OBJECTS };
-
-    eval "require $geo_json_class";
-
-    return $geo_json_class->new($data);
-}
+should not be called directly otherwise.
 
 =head1 CLASS METHODS
 
@@ -217,17 +225,6 @@ sub load {
     my $prev_codec = Geo::JSON->codec($new_codec);
 
 Set options on or replace L<JSON> codec.
-
-=cut
-
-sub codec {
-    my $class = shift;
-
-    my $orig = $json;
-    $json = shift if @_;
-
-    return $orig;
-}
 
 =head1 THANKS
 
@@ -266,12 +263,10 @@ Michael Jemmeson <mjemmeson@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Michael Jemmeson <mjemmeson@cpan.org>.
+This software is copyright (c) 2015 by Michael Jemmeson <mjemmeson@cpan.org>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
-1;
 
