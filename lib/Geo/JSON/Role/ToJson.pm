@@ -42,5 +42,7 @@ Provides the C<to_json> method.
 
 Returns JSON string representing this object.
 
+=for Pod::Coverage TO_JSON
+
 =cut
 

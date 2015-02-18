@@ -2,6 +2,9 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
 
+  [Maintenance]
+  - prereq Type::Tiny 1.000002 for overload fallback failure on perl 5.10.1
+
 0.007  2015-02-16 14:30:38 GMT
 
   [Maintenance]
