@@ -10,7 +10,10 @@ use base 'Exporter';
 
 our @EXPORT_OK = qw/ compare_positions compute_bbox /;
 
-# TODO improve - need to ensure floating points are the same
+# https://randomascii.wordpress.com/2012/02/25/comparing-floating-point-numbers-2012-edition/
+# http://www.cpantesters.org/cpan/report/0bd8d2b8-64b4-11e4-9dc2-bfba930e45bb - epsilon value
+my $EPSILON = 2.22044604925031e-16;
+
 sub compare_positions {
     my ( $pos1, $pos2 ) = @_;
 
@@ -21,9 +24,9 @@ sub compare_positions {
 
         # TODO fix stringification problems...?
         return 0
-            if ( defined $pos1->[$dim] && !defined $pos2->[$dim] )
-            || ( !defined $pos1->[$dim] && defined $pos2->[$dim] )
-            || ( $pos1->[$dim] != $pos2->[$dim] );
+            if defined $pos1->[$dim]  && !defined $pos2->[$dim]
+            or !defined $pos1->[$dim] && defined $pos2->[$dim]
+            or abs( $pos1->[$dim] - $pos2->[$dim] ) > $EPSILON * $pos1->[$dim];
     }
 
     return 1;
