@@ -73,14 +73,17 @@ subtest compare_positions => sub {
 
         # floating points
         {   positions => [
-                [ 1e-20 * 2, 0.123 ],    #
-                [ 2e-20, 0.123 ],
+                [ 0, 3.3 ],
+                [ 1.1 + 2.2 - 3.3, 3.3 ],
             ],
             result => 1,
         },
     );
 
     foreach my $test (@tests) {
+
+        use Data::Dumper::Concise;
+warn Dumper($test->{positions});
         is compare_positions( @{ $test->{positions} } ), $test->{result},
             "compare_positions ok";
     }
