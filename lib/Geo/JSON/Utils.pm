@@ -12,10 +12,14 @@ our @EXPORT_OK = qw/ compare_positions compute_bbox /;
 
 # https://randomascii.wordpress.com/2012/02/25/comparing-floating-point-numbers-2012-edition/
 # http://www.cpantesters.org/cpan/report/0bd8d2b8-64b4-11e4-9dc2-bfba930e45bb - epsilon value
-my $EPSILON = 2.22044604925031e-16;
+our $EPSILON = 2.22044604925031e-16;
 
 sub compare_positions {
-    my ( $pos1, $pos2 ) = @_;
+    my ( $pos1, $pos2, $args ) = @_;
+
+    $args ||= {};
+
+    my $epsilon = $args->{epsilon} || $EPSILON;
 
     # Assume positions have same number of dimensions
     my $dimensions = defined $pos1->[2] ? 2 : 1;
@@ -26,7 +30,7 @@ sub compare_positions {
         return 0
             if defined $pos1->[$dim]  && !defined $pos2->[$dim]
             or !defined $pos1->[$dim] && defined $pos2->[$dim]
-            or abs( $pos1->[$dim] - $pos2->[$dim] ) > $EPSILON * $pos1->[$dim];
+            or abs( $pos1->[$dim] - $pos2->[$dim] ) > $epsilon * $pos1->[$dim];
     }
 
     return 1;
@@ -78,15 +82,16 @@ Util methods for L<Geo::JSON>
 
 =head2 compare_positions
 
-    if (Geo::JSON::Utils::compare_positions( $pt1, $pt2 )) {
+    if (Geo::JSON::Utils::compare_positions( $pt1, $pt2, \%args )) {
         # positions of points are the same
     }
 
 Compare two points. Compares in up to three dimensions. Any further
 dimensions are ignored.
 
-=cut
-
+The third parameter is an optional hashref of options. Currently only
+C<epsilon> is supported, to override the default C<$Geo::JSON::Utils::EPSILON>
+value.
 
 =head2 compute_bbox
 
@@ -97,8 +102,6 @@ a list of all minimum values for all axes followed by all maximum values. The
 values are in the order the axis they appear in the position geometry.
 
 Assumes all points will have same number of dimensions as the first.
-
-=cut
 
 =head1 TODO
 
