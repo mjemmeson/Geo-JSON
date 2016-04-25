@@ -81,9 +81,6 @@ subtest compare_positions => sub {
     );
 
     foreach my $test (@tests) {
-
-        use Data::Dumper::Concise;
-warn Dumper($test->{positions});
         is compare_positions( @{ $test->{positions} } ), $test->{result},
             "compare_positions ok";
     }

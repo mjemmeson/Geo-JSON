@@ -26,11 +26,26 @@ sub compare_positions {
 
     foreach my $dim ( 0 .. $dimensions ) {
 
-        # TODO fix stringification problems...?
+        my $x = $pos1->[$dim];
+        my $y = $pos2->[$dim];
+
+        next if !defined $x && !defined $y;
+
+        # if one dimension missing, then points can't be the same
         return 0
-            if defined $pos1->[$dim]  && !defined $pos2->[$dim]
-            or !defined $pos1->[$dim] && defined $pos2->[$dim]
-            or abs( $pos1->[$dim] - $pos2->[$dim] ) > $epsilon * $pos1->[$dim];
+            if defined $x  && !defined $y
+            or !defined $x && defined $y;
+
+        my $difference = abs( $x - $y );
+        my $largest = $x > $y ? $x : $y;
+
+        warn "$x  $y";
+        warn "$difference $largest";
+        warn $epsilon * $largest;
+
+        # TODO fix stringification problems...?
+
+        return 0 if $difference > ( $epsilon * $largest );
     }
 
     return 1;
