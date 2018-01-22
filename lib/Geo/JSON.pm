@@ -83,7 +83,7 @@ be read-from and written-to.
 
 =head1 GEOJSON SPECIFICATION
 
-See: L<http://www.geojson.org/geojson-spec.html>
+See: L<RFC 7946|https://tools.ietf.org/html/rfc7946>
 
 =head1 GEOJSON MEMBERS (ATTRIBUTES)
 
