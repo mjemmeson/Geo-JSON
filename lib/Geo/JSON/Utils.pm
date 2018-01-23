@@ -82,9 +82,6 @@ Util methods for L<Geo::JSON>
 Compare two points. Compares in up to three dimensions. Any further
 dimensions are ignored.
 
-=cut
-
-
 =head2 compute_bbox
 
     my $bbox = Geo::JSON::Utils::compute_bbox( \@positions );
@@ -94,8 +91,6 @@ a list of all minimum values for all axes followed by all maximum values. The
 values are in the order the axis they appear in the position geometry.
 
 Assumes all points will have same number of dimensions as the first.
-
-=cut
 
 =head1 TODO
 

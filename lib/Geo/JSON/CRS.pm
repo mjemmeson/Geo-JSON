@@ -7,8 +7,6 @@ with 'Geo::JSON::Role::ToJson';
 
 use Types::Standard qw/ HashRef /;
 
-use Geo::JSON;
-
 has type => (
     is       => 'ro',
     required => 1,

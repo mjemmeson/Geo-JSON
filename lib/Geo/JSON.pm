@@ -68,9 +68,15 @@ Geo::JSON - Perl OO interface for geojson
 
     use Geo::JSON;
     
+    my $json = <<"END";
+    { "type" : "Point",
+      "coordinates" : [ 1, 2 ]
+    }
+    END
     my $obj = Geo::JSON->from_json( $json );
     
-    $obj->to_json();
+    # {"type":"Point","coordinates":[1,2]}
+    print $obj->to_json();
 
 =head1 DESCRIPTION
 
@@ -106,12 +112,25 @@ calculations.
 
 =item * C<coordinates>
 
-Defined in geometry objects (Point, MultiPoint, LineString, MultiLineString,
-Polygon, MultiPolygon). Will consist of a single position (Point), an array
-of positions (MultiPoint, LineString), an array of arrays of positions
-(MultiLineString, Polygon) or an array of arrays of arrays of positions
-(MultiPolygon). The positions within a single object should all have the same
-number of axes and be in the same axis order.
+Defined in geometry objects: Point, MultiPoint, LineString, MultiLineString,
+Polygon, MultiPolygon.
+
+Can consist of:
+
+=over
+
+=item - a single position (Point)
+
+=item - an array of positions (MultiPoint, LineString)
+
+=item - an array of arrays of positions (MultiLineString, Polygon)
+
+=item - an array of arrays of arrays of positions (MultiPolygon).
+
+=back
+
+The positions within a single object should all have the same number of axes
+and be in the same axis order, e.g. all be of form [x,y].
 
 =item * C<bbox>
 
@@ -226,9 +245,9 @@ should not be called directly otherwise.
 
 Set options on or replace L<JSON> codec.
 
-=head1 THANKS
+=head1 EXAMPLES
 
-Tim Bunce - for codec suggestions and bug spotting.
+
 
 =head1 SEE ALSO
 
@@ -261,9 +280,17 @@ L<https://github.com/mjemmeson/Geo-JSON>
 
 Michael Jemmeson <mjemmeson@cpan.org>
 
+=head1 CONTRIBUTORS
+
+Mohammad S Anwar [MANWAR]
+
+=head1 THANKS
+
+Tim Bunce - for codec suggestions and bug spotting.
+
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2015 by Michael Jemmeson <mjemmeson@cpan.org>.
+This software is copyright (c) 2018 by Michael Jemmeson <mjemmeson@cpan.org>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

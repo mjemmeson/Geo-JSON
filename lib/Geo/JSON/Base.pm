@@ -7,7 +7,7 @@ with 'Geo::JSON::Role::ToJson';
 
 use Carp;
 
-use Geo::JSON;
+use Geo::JSON::CRS;
 use Geo::JSON::Types -types;
 use Geo::JSON::Utils;
 

@@ -21,7 +21,7 @@ be read-from and written-to.
 
 # GEOJSON SPECIFICATION
 
-See: [http://www.geojson.org/geojson-spec.html](http://www.geojson.org/geojson-spec.html)
+See: [RFC 7946](https://tools.ietf.org/html/rfc7946)
 
 # GEOJSON MEMBERS (ATTRIBUTES)
 
@@ -177,9 +177,13 @@ public review and contribution under the terms of the license.
 
 Michael Jemmeson <mjemmeson@cpan.org>
 
+# CONTRIBUTORS
+
+Mohammad S Anwar \[MANWAR\]
+
 # COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2015 by Michael Jemmeson <mjemmeson@cpan.org>.
+This software is copyright (c) 2018 by Michael Jemmeson <mjemmeson@cpan.org>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
