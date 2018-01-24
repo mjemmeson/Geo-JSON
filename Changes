@@ -2,6 +2,10 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
 
+  [Bugfix]
+  - possible bugfix with loading Geo::JSON::CRS automatically
+    when inflating from JSON or data structure
+
   [Maintenance]
   - prereq Type::Tiny 1.000002 for overload fallback failure on perl 5.10.1
   - updating links to GeoJSON spec (RFC) - [thanks: MANWAR]

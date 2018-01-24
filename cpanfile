@@ -10,14 +10,15 @@ requires "Type::Utils" => "0";
 requires "Types::Standard" => "0";
 requires "base" => "0";
 requires "constant" => "0";
-requires "perl" => "5.008";
+requires "perl" => "5.010";
 requires "strict" => "0";
 requires "warnings" => "0";
 
 on 'test' => sub {
   requires "Class::Load" => "0";
   requires "ExtUtils::MakeMaker" => "0";
-  requires "File::Spec::Functions" => "0";
+  requires "FindBin" => "0";
+  requires "Module::Util" => "0";
   requires "Path::Class" => "0";
   requires "Test::Fatal" => "0";
   requires "Test::More" => "0";
